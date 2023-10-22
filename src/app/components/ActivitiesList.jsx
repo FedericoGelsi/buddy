@@ -10,12 +10,12 @@ function ActivitiesList({ router }) {
   const navigateIdentikit = () => router.push("/activities/identikit");
 
   return (
-    <div className="w-full mx-8">
+    <div className="w-full">
       <h2 className="my-4 text-2xl">Actividades y guía de seguridad online</h2>
       <h2 className="my-4 text-md font-light">
         Elige una actividad y aprende sobre el Grooming mientras te diviertes.
       </h2>
-      <div className="flex justify-between align-center">
+      <div className="flex justify-center align-center gap-8 flex-wrap">
         <ActivityCard
           cardTitle={"Juego de simulacion"}
           cardContent={

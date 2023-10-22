@@ -17,7 +17,7 @@ function ActivitiesHome() {
       <Button variant="light" startContent={<FaAngleLeft />} size="lg">
         Atras
       </Button>
-      <div className="mx-8">
+      <div className="mx-4">
         <h2 className="my-4 text-4xl font-medium">
           Te damos la bienvenida a Buddy
         </h2>
