@@ -1,29 +1,33 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import { getInfo } from 'src/app/fetchApi.js';
+import { useEffect, useState } from "react";
+import { getInfo } from "../fetchApi.js";
+import Image from "next/image";
+import BuddyLogo from "../assets/Logo.png";
+import { Avatar } from "@nextui-org/avatar";
 
-export default function BannerSuperior(){
-    const {nombre, setNombre} = useState(null);
-    useEffect(() => {
-        getInfo(setNombre);
-    },[]);
+export default function BannerSuperior() {
+  const [nombre, setNombre] = useState("username");
+  useEffect(() => {
+    getInfo(setNombre);
+  }, []);
 
-    return (<div className="w-[1360px] h-28 px-10 py-6 bg-slate-700 bg-opacity-60 rounded-2xl justify-end items-center inline-flex">
-    <div className="grow shrink basis-0 h-16 justify-between items-center flex">
-        <div className="w-[140.47px] h-14 relative">
-            <img src="Logo.png"/>
-        </div>
-        <div className="justify-start items-center gap-6 flex">
-            <div className="w-14 h-14 relative" />
-            <div className="pl-8 bg-slate-800 rounded-[32px] justify-start items-center gap-[23px] flex">
-                <div className="text-right text-gray-50 text-lg font-normal font-['Poppins']"></div>
-                <div className="w-16 h-16 relative">
-                    <div className="w-16 h-16 left-0 top-0 absolute bg-lime-50 rounded-full" />
-                    <img className="w-[42px] h-[61.64px] left-[11px] top-[2px] absolute shadow" src="Intersect.png" />
-                </div>
-            </div>
-        </div>
+  return (
+    <div
+      className="w-full h-24 rounded-3xl flex justify-between items-center px-8 mb-4"
+      style={{ backgroundColor: "#2A4B62" }}
+    >
+      <Image src={BuddyLogo} alt="NextUI hero Image" />
+      <div
+        className="rounded-full flex justify-between items-center pl-6 gap-4"
+        style={{ backgroundColor: "#1E3646" }}
+      >
+        <div className="text-light">{nombre}</div>
+        <Avatar
+          src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+          size="lg"
+        />
+      </div>
     </div>
-</div>);
+  );
 }
