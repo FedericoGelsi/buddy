@@ -6,7 +6,10 @@ import Image from "next/image";
 function ActivityCard(props) {
   return (
     <Card className="max-w-md">
-      <CardHeader className="min-h-[13rem] p-0 items-end" style={{ backgroundColor: "#EBF0F3" }}>
+      <CardHeader
+        className="min-h-[13rem] p-0 items-end"
+        style={{ backgroundColor: "#EBF0F3" }}
+      >
         <div
           className={`flex justify-center grow items-center ${
             props.isExclusive && "flex-col"

@@ -3,12 +3,18 @@ import ActivityCard from "./ActivityCard";
 import SimulacionImg from "../assets/simulacion.png";
 import IdentikitImg from "../assets/identikit.png";
 import QuizImg from "../assets/quiz.png";
+import { useDisclosure } from "@nextui-org/react";
+import ActivityModal from "./ActivityModal";
+import { useState } from "react";
 
 function ActivitiesList({ router }) {
-  const navigateQuiz = () => router.push("/activities/quiz");
-  const navigateSimulation = () => router.push("/activities/simulation");
-  const navigateIdentikit = () => router.push("/activities/identikit");
-
+  const [activity, setActivity] = useState(null);
+  const navigateTo = () => router.push(`/activities/${activity}`);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const handleActivity = (activity) => {
+    setActivity(activity);
+    onOpen();
+  };
   return (
     <div className="w-full">
       <h2 className="my-4 text-2xl">Actividades y guía de seguridad online</h2>
@@ -23,7 +29,7 @@ function ActivitiesList({ router }) {
           }
           cardImage={SimulacionImg}
           cardButtonTitle={"Comenzar actividad"}
-          onPress={navigateSimulation}
+          onPress={() => handleActivity("simulation")}
           isDisabled={true}
         />
         <ActivityCard
@@ -33,7 +39,7 @@ function ActivitiesList({ router }) {
           }
           cardImage={IdentikitImg}
           cardButtonTitle={"Comenzar actividad"}
-          onPress={navigateIdentikit}
+          onPress={() => handleActivity("identikit")}
           isDisabled={true}
         />
         <ActivityCard
@@ -44,7 +50,12 @@ function ActivitiesList({ router }) {
           cardImage={QuizImg}
           cardButtonTitle={"Comenzar actividad"}
           isExclusive={true}
-          onPress={navigateQuiz}
+          onPress={() => handleActivity("quiz")}
+        />
+        <ActivityModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          navigateTo={navigateTo}
         />
       </div>
     </div>
