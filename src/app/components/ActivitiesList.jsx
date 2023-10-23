@@ -8,13 +8,32 @@ import ActivityModal from "./ActivityModal";
 import { useState } from "react";
 
 function ActivitiesList({ router }) {
-  const [activity, setActivity] = useState(null);
+  const [activity, setActivity] = useState("");
   const navigateTo = () => router.push(`/activities/${activity}`);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const handleActivity = (activity) => {
     setActivity(activity);
     onOpen();
   };
+
+  const content = [
+    {
+      activity: "quiz",
+      title: "Estás a punto de iniciar el cuestionario",
+      body: "A continuación, te haremos una serie de preguntas sobre el Grooming. ¿Estás listo para desafiar tus habilidades?",
+    },
+    {
+      activity: "identikit",
+      title: "Estás a punto de iniciar el Identikit",
+      content:
+        "A continuación, verás una serie de imágenes de perfiles de redes sociales. ¿Estás listo para desafiar tus habilidades y detectar cuál de ellos es sospechoso?",
+    },
+    {
+      activity: "simulation",
+      title: "Estás a punto de iniciar la simulación",
+      body: "A definir",
+    },
+  ];
   return (
     <div className="w-full">
       <h2 className="my-4 text-2xl">Actividades y guía de seguridad online</h2>
@@ -29,7 +48,7 @@ function ActivitiesList({ router }) {
           }
           cardImage={SimulacionImg}
           cardButtonTitle={"Comenzar actividad"}
-          onPress={() => handleActivity("simulation")}
+          onPress={() => handleActivity(content[2].activity)}
           isDisabled={true}
         />
         <ActivityCard
@@ -39,7 +58,7 @@ function ActivitiesList({ router }) {
           }
           cardImage={IdentikitImg}
           cardButtonTitle={"Comenzar actividad"}
-          onPress={() => handleActivity("identikit")}
+          onPress={() => handleActivity(content[1].activity)}
           isDisabled={true}
         />
         <ActivityCard
@@ -50,12 +69,14 @@ function ActivitiesList({ router }) {
           cardImage={QuizImg}
           cardButtonTitle={"Comenzar actividad"}
           isExclusive={true}
-          onPress={() => handleActivity("quiz")}
+          onPress={() => handleActivity(content[0].activity)}
         />
         <ActivityModal
           isOpen={isOpen}
           onOpenChange={onOpenChange}
           navigateTo={navigateTo}
+          content={content.find((x) => x.activity===activity)}
+          variant="start"
         />
       </div>
     </div>

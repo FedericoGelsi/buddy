@@ -9,8 +9,9 @@ import {
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import ActivityStartImg from "../assets/Enthusiastic-pana 1.png";
+import ActivityFinishImg from "../assets/Happy-student-pana.png";
 
-function ActivityModal({ isOpen, onOpenChange, navigateTo }) {
+function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
   return (
     <Modal
       backdrop="blur"
@@ -25,32 +26,24 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo }) {
             <ModalHeader className="flex flex-col justify-center items-center">
               <Image
                 className="max-h-fit"
-                src={ActivityStartImg}
+                src={variant === "start" ? ActivityStartImg : ActivityFinishImg}
                 alt="NextUI hero Image"
               />
             </ModalHeader>
             <ModalBody>
-              <h2 className="my-4 text-2xl">
-                Estás a punto de iniciar el Identikit
-              </h2>
-              <p
-                className="text-md font-light"
-                style={{ color: "#B2B2B3" }}
-              >
-                A continuación, verás una serie de imágenes de perfiles de redes
-                sociales. ¿Estás listo para desafiar tus habilidades y detectar
-                cuál de ellos es sospechoso?
+              <h2 className="my-4 text-2xl">{content.title}</h2>
+              <p className="text-md font-light" style={{ color: "#B2B2B3" }}>
+                {content.body}
               </p>
-              <p
-                className="text-md font-light"
-                style={{ color: "#B2B2B3" }}
-              >
-                Presiona "Continuar" para iniciar la actividad.
+              <p className="text-md font-light" style={{ color: "#B2B2B3" }}>
+                Presiona "
+                {variant === "start" ? "Continuar" : "Terminar actividad"}" para
+                finalizar.
               </p>
             </ModalBody>
             <ModalFooter>
               <Button className="light" onPress={navigateTo}>
-                Continuar
+                {variant==="start" ? "Continuar" : "Terminar actividad"}
               </Button>
             </ModalFooter>
           </>
