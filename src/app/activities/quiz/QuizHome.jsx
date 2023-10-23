@@ -1,10 +1,10 @@
 import React from "react";
 import BannerSuperior from "../../components/BannerSuperior";
-import EncuestaBox from "../../components/EncuestaBox";
+import EncuestaBox from "./EncuestaBox";
 
 function QuizHome() {
   return (
-    <div>
+    <div className="container">
       <BannerSuperior />
       <EncuestaBox />
     </div>
