@@ -6,26 +6,25 @@ import Image from "next/image";
 function ActivityCard(props) {
   return (
     <Card className="max-w-md">
-      <CardHeader className="min-h-[13rem] p-0 items-end" style={{ backgroundColor: "#EBF0F3" }}>
-        <div
-          className={`flex justify-center grow items-center ${
-            props.isExclusive && "flex-col"
-          }`}
-        >
-          <Image
-            className="max-h-fit"
-            src={props.cardImage}
-            alt="NextUI hero Image"
-          />
-          {props.isExclusive && (
-            <div
-              className="text-center self-stretch"
-              style={{ backgroundColor: "#FBD4A4", color: "#AC6714" }}
-            >
-              Exclusivo para cuidadores
-            </div>
-          )}
-        </div>
+      <CardHeader
+        className={`min-h-[13rem] p-0 items-end flex justify-center grow items-center ${
+          props.isExclusive && "flex-col"
+        }`}
+        style={{ backgroundColor: "#EBF0F3" }}
+      >
+        <Image
+          className="max-h-fit"
+          src={props.cardImage}
+          alt="NextUI hero Image"
+        />
+        {props.isExclusive && (
+          <div
+            className="text-center self-stretch"
+            style={{ backgroundColor: "#FBD4A4", color: "#AC6714" }}
+          >
+            Exclusivo para cuidadores
+          </div>
+        )}
       </CardHeader>
       <CardBody style={{ backgroundColor: "#2A4B62" }}>
         <h3 className="text-2xl leading-loose">{props.cardTitle}</h3>
