@@ -29,13 +29,13 @@ function AnswerCheckboxGroup({ answers }) {
 
   return (
     <CheckboxGroup
-      className="grow justify-center"
+      className="grow justify-center light"
       value={selected}
       onValueChange={setSelected}
     >
       {answers.map((answer) => {
         return (
-          <CustomCheckBox aria-label={answer.id} value={answer.id}>
+          <CustomCheckBox key={answer.id} aria-label={answer.id} value={answer.id}>
             {answer.title}
           </CustomCheckBox>
         );

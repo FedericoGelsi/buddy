@@ -1,7 +1,19 @@
+"use client";
+
 import React from "react";
 import AnswerCheckboxGroup from "./AnswerCheckbox";
 import AnswerRadioGroup from "./AnswerRadioGroup";
+import ActivityModal from "../../components/ActivityModal";
+
+import { useDisclosure } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { useRouter } from "next/navigation";
+
 export default function EncuestaBox(props) {
+  const router = useRouter();
+  const navigateTo = () => router.push(`/activities`);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   const questions = [
     {
       id: 1,
@@ -36,9 +48,20 @@ export default function EncuestaBox(props) {
       </h2>
 
       <div className="flex flex-col gap-8 mx-64 grow">
-        <AnswerCheckboxGroup answers={questions[0].answers} />
+        {/* <AnswerCheckboxGroup answers={questions[0].answers} /> */}
         <AnswerRadioGroup answers={questions[0].answers} />
       </div>
+      <Button className="light" onPress={onOpen}>Finalizar actividad</Button>
+      <ActivityModal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        navigateTo={navigateTo}
+        content={{
+          title: "¡Felicidades, has finalizado la actividad!",
+          body:
+            "Has completado exitosamente el nivel. Te hemos preparado un informe crucial sobre el menor para que lo descargues, además, será revisado por uno de nuestros especialistas, quien se pondrá en contacto contigo.",
+        }}
+      />
     </div>
   );
 }

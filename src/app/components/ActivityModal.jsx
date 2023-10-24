@@ -36,9 +36,9 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
                 {content.body}
               </p>
               <p className="text-md font-light" style={{ color: "#B2B2B3" }}>
-                Presiona "
-                {variant === "start" ? "Continuar" : "Terminar actividad"}" para
-                finalizar.
+                {`Presiona "
+                ${variant === "start" ? "Continuar" : "Terminar actividad"}" para
+                finalizar.`}
               </p>
             </ModalBody>
             <ModalFooter>
