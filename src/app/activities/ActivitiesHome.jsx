@@ -14,27 +14,29 @@ function ActivitiesHome() {
   return (
     <div className="container flex-col">
       <BannerSuperior />
-      <Button variant="light" startContent={<FaAngleLeft />} size="lg">
-        Atras
+      <div className="mx-4" style={{ backgroundColor: "#2A4B62", borderRadius: '20px' }}>
+      <Button variant="light" startContent={<FaAngleLeft />} size="lg" style={{color: 'white'}}>
+          Atras
       </Button>
-      <div className="mx-4">
-        <h2 className="my-4 text-4xl font-medium">
-          Te damos la bienvenida a Buddy
-        </h2>
-        <h2 className="my-4 text-md font-light">
-          Controla el progreso y realiza las actividades de protección juntos.{" "}
-        </h2>
-        <Tabs
-          key="underlined"
-          variant="underlined"
-          aria-label="Options"
-          color="success"
-        >
-          <Tab key="activities" title="Actividades">
-            <ActivitiesList router={router} />
-          </Tab>
-          <Tab key="dashboard" title="Progreso"></Tab>
-        </Tabs>
+        <div style={{ margin: '20px' }}>
+          <h2 className="my-4 text-4xl font-medium" style={{ color: 'white' }}>
+            Te damos la bienvenida a Buddy
+          </h2>
+          <h2 className="my-4 text-md font-light" style={{ color: 'white' }}>
+            Controla el progreso y realiza las actividades de protección juntos.
+          </h2>
+          <Tabs
+            key="underlined"
+            variant="underlined"
+            aria-label="Options"
+            color="success"
+          >
+            <Tab key="activities" title="Actividades">
+              <ActivitiesList router={router} />
+            </Tab>
+            <Tab key="dashboard" title="Progreso"></Tab>
+          </Tabs>
+        </div>
       </div>
     </div>
   );

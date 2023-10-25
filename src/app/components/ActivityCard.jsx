@@ -27,8 +27,8 @@ function ActivityCard(props) {
         )}
       </CardHeader>
       <CardBody style={{ backgroundColor: "#2A4B62" }}>
-        <h3 className="text-2xl leading-loose">{props.cardTitle}</h3>
-        <p>{props.cardContent}</p>
+        <h3 className="text-2xl leading-loose" style={{ color: 'white' }}>{props.cardTitle}</h3>
+        <p style={{ color: 'white' }}>{props.cardContent}</p>
       </CardBody>
       <CardFooter style={{ backgroundColor: "#2A4B62" }}>
         <BuddyButton
