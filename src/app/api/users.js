@@ -9,7 +9,7 @@ export async function createParent(parent) {
   //     "activities": {},
   //     "password": "123"
   // }
-  const uri = "/user";
+  const uri = "/users";
   const res = await post(uri, parent);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -27,7 +27,7 @@ export async function createChildren(children) {
   //     "parentIds": ["65338e44dce63751dd4eb4"],
   //     "activities": {}
   // }
-  const uri = "/user/child";
+  const uri = "/users/childs";
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
   const res = await post(uri, children);

@@ -17,7 +17,7 @@ export async function submitForm(quizResponses) {
   //     ]
   // }
 
-  const res = await post("/parent_form", quizResponses);
+  const res = await post("/parent_forms", quizResponses);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
