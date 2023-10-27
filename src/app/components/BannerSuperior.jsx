@@ -13,15 +13,9 @@ export default function BannerSuperior() {
   }, []);
 
   return (
-    <div
-      className="w-full h-24 rounded-3xl flex justify-between items-center px-8 mb-4"
-      style={{ backgroundColor: "#2A4B62" }}
-    >
+    <div className="w-full h-24 rounded-3xl flex justify-between items-center px-8 mb-4 bg-T500">
       <Image src={BuddyLogo} alt="NextUI hero Image" />
-      <div
-        className="rounded-full flex justify-between items-center pl-6 gap-4"
-        style={{ backgroundColor: "#1E3646" }}
-      >
+      <div className="rounded-full flex justify-between items-center pl-6 gap-4 bg-T600">
         <div className="text-light">{nombre}</div>
         <Avatar
           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
