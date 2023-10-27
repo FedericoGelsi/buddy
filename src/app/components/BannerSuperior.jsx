@@ -1,16 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { getInfo } from "../fetchApi.js";
+import { useState } from "react";
 import Image from "next/image";
 import BuddyLogo from "../assets/Logo.png";
 import { Avatar } from "@nextui-org/avatar";
 
 export default function BannerSuperior() {
   const [nombre, setNombre] = useState("username");
-  useEffect(() => {
-    getInfo(setNombre);
-  }, []);
 
   return (
     <div className="w-full h-24 rounded-3xl flex justify-between items-center px-8 mb-4 bg-T500">
