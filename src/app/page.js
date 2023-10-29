@@ -1,9 +1,10 @@
-import ActivitiesHome from "./activities/ActivitiesHome";
+import LandingHeader from "./components/LandingHeader";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen justify-center text-6xl">
-      Page under contruction
+    <main className="flex flex-col min-h-screen justify-start items-center">
+      <LandingHeader />
+      <p className="text-6xl text-B500">Page under contruction</p>
     </main>
   );
 }

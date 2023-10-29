@@ -1,8 +1,9 @@
-'use client';
+"use client";
 import React, { useState } from "react";
-import AnswerCheckboxGroup from "./AnswerCheckbox";
 import AnswerRadioGroup from "./AnswerRadioGroup";
 import { Button } from "@nextui-org/button";
+import { FaAngleRight } from "react-icons/fa";
+
 export default function EncuestaBox(props) {
   const questions = [
     {
@@ -161,8 +162,7 @@ export default function EncuestaBox(props) {
     },
     {
       id: 8,
-      question:
-        "¿El menor a cargo ha mostrado conductas autoagresivas?",
+      question: "¿El menor a cargo ha mostrado conductas autoagresivas?",
       answers: [
         {
           id: 1,
@@ -229,7 +229,7 @@ export default function EncuestaBox(props) {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const nextQuestion = () => {
-    if(currentQuestion < questions.length){
+    if (currentQuestion < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     }
   };
@@ -239,17 +239,26 @@ export default function EncuestaBox(props) {
       className="p-8 min-h-[85%] rounded-3xl flex flex-col justify-center"
       style={{ backgroundColor: "#3C6C8D2F" }}
     >
-      <h2 className="my-4 text-2xl text-center font-light" style={{ color: 'white' }}>
+      <h2
+        className="my-4 text-2xl text-center font-light"
+        style={{ color: "white" }}
+      >
         {questions[currentQuestion].question}
       </h2>
 
       <div className="flex flex-col gap-8 mx-64 grow">
         <AnswerRadioGroup answers={questions[currentQuestion].answers} />
       </div>
-      <Button onClick={nextQuestion} variant="light" style={{ marginLeft: "auto", backgroundColor: "rgb(255, 255, 255)" }} size="lg">
+      <div className="flex justify-end">
+        <Button
+          onClick={nextQuestion}
+          className="light"
+          size="lg"
+          endContent={<FaAngleRight />}
+        >
           Siguiente
-      </Button>
+        </Button>
+      </div>
     </div>
   );
-  //<AnswerRadioGroup answers={questions[0].answers} />
 }
