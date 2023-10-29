@@ -36,8 +36,8 @@ function ActivitiesList({ router }) {
   ];
   return (
     <div className="w-full">
-      <h2 className="my-4 text-2xl">Actividades y guía de seguridad online</h2>
-      <h2 className="my-4 text-md font-light">
+      <h2 className="my-4 text-2xl" style={{ color: 'white' }}> Actividades y guía de seguridad online</h2>
+      <h2 className="my-4 text-md font-light" style={{ color: 'white' }}>
         Elige una actividad y aprende sobre el Grooming mientras te diviertes.
       </h2>
       <div className="flex justify-center align-center gap-8 flex-wrap">
