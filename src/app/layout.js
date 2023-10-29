@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
-import { healthCheck } from "./api/healthCheck";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -10,12 +9,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const data = await healthCheck();
-
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
-        <h1>API Status: {data}</h1>
+      <body className={`${inter.className} bg-B100`}>
         <Providers>{children}</Providers>
       </body>
     </html>
