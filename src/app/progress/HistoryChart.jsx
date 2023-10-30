@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-export default function GraphTitle(props) {
+export default function HistoryChart(props) {
   return (
     <div style={{alignSelf: 'stretch', flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
         <div style={{alignSelf: 'stretch', color: '#2C2C2E', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', lineHeight: 24, wordWrap: 'break-word'}}>Promedio histórico reconocimiento</div>

@@ -1,7 +1,15 @@
 "use client";
 import React from "react";
+import Pie from "../components/Pie";
 
-export default function GraphDetail(props) {
+export default function PercentageChartSmall(props) {
+    let chartColor = "orange";
+    if(props.value > 70) {
+        chartColor = "green"
+    } else if (props.value < 40){
+        chartColor = "red"
+    };
+
   return (
     <div style={{flex: '1 1 0', height: 144, padding: 24, background: 'white', borderRadius: 16, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
     <div style={{flex: '1 1 0', height: 96, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'flex'}}>
@@ -10,7 +18,8 @@ export default function GraphDetail(props) {
               <div style={{alignSelf: 'stretch', color: '#404042', fontSize: 14, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'}}>{props.description}</div>
           </div>
           <div style={{width: 96, height: 96, position: 'relative'}}>
-              <div style={{width: 96, height: 96, left: 0, top: 0, position: 'absolute', background: 'white', borderRadius: 9999}} />
+            <Pie percentage={props.value} color={chartColor} unit="/100" />
+              {/* <div style={{width: 96, height: 96, left: 0, top: 0, position: 'absolute', background: 'white', borderRadius: 9999}} />
               <div style={{width: 96, height: 96, left: 0, top: 0, position: 'absolute', background: '#EBEBEC', boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)', borderRadius: 9999}} />
               <div style={{width: 96, height: 96, left: 0, top: 0, position: 'absolute', background: '#AFD778', boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)', borderRadius: 9999}} />
               <div style={{width: 57, height: 31, left: 20, top: 33, position: 'absolute', justifyContent: 'flex-start', alignItems: 'flex-end', display: 'inline-flex'}}>
@@ -18,7 +27,7 @@ export default function GraphDetail(props) {
                   <div style={{paddingTop: 5, paddingBottom: 5, justifyContent: 'flex-start', alignItems: 'flex-end', gap: 10, display: 'flex'}}>
                       <div style={{color: '#404042', fontSize: 12, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'}}>/100</div>
                   </div>
-              </div>
+              </div> */}
           </div>
       </div>
       </div>

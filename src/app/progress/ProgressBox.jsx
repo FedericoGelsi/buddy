@@ -1,9 +1,9 @@
 'use client';
 import React, { useState } from "react";
 import Image from "next/image";
-import GraphDetail from "./GraphDetail";
-import GraphTitle from "./GraphTitle"
-import GraphHistory from "./GraphHistory"
+import PercentageChartSmall from "./PercentageChartSmall";
+import PercentageChartBig from "./PercentageChartBig"
+import HistoryChart from "./HistoryChart"
 import infoMark from "../assets/info-circle.png";
 
 export default function ProgressBox(props) {
@@ -34,12 +34,12 @@ export default function ProgressBox(props) {
 
       <div style={{alignSelf: 'stretch', height: 346, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 15}}>
           <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-                <GraphDetail title="Exposición a contenido inapropiado" description="Evalúa el riesgo de que el menor se encuentre con contenido en línea inapropiado o perjudicial." value={88} />
-                <GraphDetail title="Divulgación de datos personales" description="Expone la inclinación de los menores a compartir datos personales delicados, como nombres, emails, direcciones o números de teléfono." value={24} />
+                <PercentageChartSmall title="Exposición a contenido inapropiado" description="Evalúa el riesgo de que el menor se encuentre con contenido en línea inapropiado o perjudicial." value={88} />
+                <PercentageChartSmall title="Divulgación de datos personales" description="Expone la inclinación de los menores a compartir datos personales delicados, como nombres, emails, direcciones o números de teléfono." value={24} />
           </div>
           <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-                <GraphDetail title="Compartir multimedia" description="Se refiere a la acción de compartir fotos y videos a través de plataformas digitales." value={59} />
-                <GraphDetail title="Cambios en las amistades" description="Indica alteraciones en los vínculos y amistades del menor, que podrían ser el resultado de interacciones en línea o fuera de línea." value={92} />
+                <PercentageChartSmall title="Compartir multimedia" description="Se refiere a la acción de compartir fotos y videos a través de plataformas digitales." value={59} />
+                <PercentageChartSmall title="Cambios en las amistades" description="Indica alteraciones en los vínculos y amistades del menor, que podrían ser el resultado de interacciones en línea o fuera de línea." value={92} />
           </div>
       </div>
 
@@ -48,10 +48,10 @@ export default function ProgressBox(props) {
       </div>
       
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'inline-flex', marginTop: 16}}>
-        <GraphTitle title="Reconocimiento de perfil sospechoso" value={77} />
+        <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={77} />
 
         <div style={{flex: '1 1 0', alignSelf: 'stretch', padding: 24, background: 'white', borderRadius: 16, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
-          {/* <GraphHistory/> */}
+          {/* <HistoryChart/> */}
         </div>
       </div>
 
@@ -60,15 +60,15 @@ export default function ProgressBox(props) {
       </div>
       
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex', marginTop: 16}}>
-        <GraphTitle title="Indicador de situación" value={65} />
+        <PercentageChartBig title="Indicador de situación" value={65} />
         <div style={{flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
             <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-              <GraphDetail title="Evaluación de bienestar del menor" description="Combina indicadores y sintomatología para evaluar la situación del menor en el contexto del grooming." value={88} />
-              <GraphDetail title="Tendencia en los hábitos" description="Se proporciona una visión del comportamiento y actividades del menor a cargo." value={24} />
+              <PercentageChartSmall title="Evaluación de bienestar del menor" description="Combina indicadores y sintomatología para evaluar la situación del menor en el contexto del grooming." value={88} />
+              <PercentageChartSmall title="Tendencia en los hábitos" description="Se proporciona una visión del comportamiento y actividades del menor a cargo." value={24} />
             </div>
             <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-              <GraphDetail title="Dinámica de relaciones del menor" description="Visión general de sus interacciones sociales y puede ayudar a identificar patrones y tendencias en sus relaciones." value={95} />
-              <GraphDetail title="Análisis del comportamiento" description="Ofrece una perspectiva sobre cómo ciertos comportamientos pueden afectar su bienestar y desarrollo." value={67} />
+              <PercentageChartSmall title="Dinámica de relaciones del menor" description="Visión general de sus interacciones sociales y puede ayudar a identificar patrones y tendencias en sus relaciones." value={95} />
+              <PercentageChartSmall title="Análisis del comportamiento" description="Ofrece una perspectiva sobre cómo ciertos comportamientos pueden afectar su bienestar y desarrollo." value={67} />
             </div>
         </div>
       </div>

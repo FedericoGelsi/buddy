@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-export default function GraphTitle(props) {
+export default function PercentageChartBig(props) {
   return (
     <div style={{flex: '0 1 0', padding: 24, background: 'white', borderRadius: 16, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
         <div style={{alignSelf: 'stretch', height: 264, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 24, display: 'flex'}}>
