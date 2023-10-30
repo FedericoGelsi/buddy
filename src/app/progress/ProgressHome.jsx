@@ -15,7 +15,7 @@ function ProgressHome() {
   return (
     <div className="container flex-col">
       <BannerSuperior />
-      <div className="mx-4" style={{ backgroundColor: "#2A4B62", borderRadius: '20px' }}>
+      <div className="mx-4" >
       <Button variant="light" startContent={<FaAngleLeft />} size="lg" style={{color: 'white'}}>
           Atras
       </Button>

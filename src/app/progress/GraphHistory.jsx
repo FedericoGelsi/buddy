@@ -3,7 +3,6 @@ import React from "react";
 
 export default function GraphTitle(props) {
   return (
-    <div style={{width: '100%', height: '100%', padding: 24, background: 'white', borderRadius: 16, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
     <div style={{alignSelf: 'stretch', flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex'}}>
         <div style={{alignSelf: 'stretch', color: '#2C2C2E', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', lineHeight: 24, wordWrap: 'break-word'}}>Promedio histórico reconocimiento</div>
         <div style={{alignSelf: 'stretch', flex: '1 1 0', position: 'relative'}}>
@@ -73,6 +72,5 @@ export default function GraphTitle(props) {
             <div style={{width: 12, height: 12, left: 504, top: 61, position: 'absolute', background: '#3C6C8D', borderRadius: 9999}} />
         </div>
     </div>
-</div>
   );
 }
