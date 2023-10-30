@@ -7,10 +7,9 @@ function ActivityCard(props) {
   return (
     <Card className="max-w-md">
       <CardHeader
-        className={`min-h-[13rem] p-0 items-end flex justify-center grow items-center ${
+        className={`min-h-[13rem] p-0 items-end flex justify-center grow items-center bg-T100 ${
           props.isExclusive && "flex-col"
         }`}
-        style={{ backgroundColor: "#EBF0F3" }}
       >
         <Image
           className="max-h-fit"
@@ -18,19 +17,16 @@ function ActivityCard(props) {
           alt="NextUI hero Image"
         />
         {props.isExclusive && (
-          <div
-            className="text-center self-stretch"
-            style={{ backgroundColor: "#FBD4A4", color: "#AC6714" }}
-          >
+          <div className="text-center self-stretch bg-Alert200 text-Alert500">
             Exclusivo para cuidadores
           </div>
         )}
       </CardHeader>
-      <CardBody style={{ backgroundColor: "#2A4B62" }}>
-        <h3 className="text-2xl leading-loose" style={{ color: 'white' }}>{props.cardTitle}</h3>
-        <p style={{ color: 'white' }}>{props.cardContent}</p>
+      <CardBody className="bg-T500">
+        <h3 className="text-2xl leading-loose">{props.cardTitle}</h3>
+        <p>{props.cardContent}</p>
       </CardBody>
-      <CardFooter style={{ backgroundColor: "#2A4B62" }}>
+      <CardFooter className="bg-T500">
         <BuddyButton
           className="light"
           fullWidth={true}

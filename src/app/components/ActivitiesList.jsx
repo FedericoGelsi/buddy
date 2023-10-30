@@ -25,8 +25,7 @@ function ActivitiesList({ router }) {
     {
       activity: "identikit",
       title: "Estás a punto de iniciar el Identikit",
-      content:
-        "A continuación, verás una serie de imágenes de perfiles de redes sociales. ¿Estás listo para desafiar tus habilidades y detectar cuál de ellos es sospechoso?",
+      body: "A continuación, verás una serie de imágenes de perfiles de redes sociales. ¿Estás listo para desafiar tus habilidades y detectar cuál de ellos es sospechoso?",
     },
     {
       activity: "simulation",
@@ -36,8 +35,8 @@ function ActivitiesList({ router }) {
   ];
   return (
     <div className="w-full">
-      <h2 className="my-4 text-2xl" style={{ color: 'white' }}> Actividades y guía de seguridad online</h2>
-      <h2 className="my-4 text-md font-light" style={{ color: 'white' }}>
+      <h2 className="my-4 text-2xl"> Actividades y guía de seguridad online</h2>
+      <h2 className="my-4 text-md font-light">
         Elige una actividad y aprende sobre el Grooming mientras te diviertes.
       </h2>
       <div className="flex justify-center align-center gap-8 flex-wrap">
@@ -59,7 +58,6 @@ function ActivitiesList({ router }) {
           cardImage={IdentikitImg}
           cardButtonTitle={"Comenzar actividad"}
           onPress={() => handleActivity(content[1].activity)}
-          isDisabled={true}
         />
         <ActivityCard
           cardTitle={"Aprende con nosotros"}
@@ -75,7 +73,7 @@ function ActivitiesList({ router }) {
           isOpen={isOpen}
           onOpenChange={onOpenChange}
           navigateTo={navigateTo}
-          content={content.find((x) => x.activity===activity)}
+          content={content.find((x) => x.activity === activity)}
           variant="start"
         />
       </div>

@@ -7,6 +7,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import ActivitiesList from "../components/ActivitiesList";
 import { useRouter } from "next/navigation";
+import { Link } from "@nextui-org/link";
 
 function ActivitiesHome() {
   const router = useRouter();
@@ -14,22 +15,29 @@ function ActivitiesHome() {
   return (
     <div className="container flex-col">
       <BannerSuperior />
-      <div className="mx-4" style={{ backgroundColor: "#2A4B62", borderRadius: '20px' }}>
-      <Button variant="light" startContent={<FaAngleLeft />} size="lg" style={{color: 'white'}}>
+      <div className="mx-4">
+        <Button
+          as={Link}
+          href="/"
+          variant="light"
+          startContent={<FaAngleLeft />}
+          size="lg"
+          className="T100 my-2"
+        >
           Atras
-      </Button>
-        <div style={{ margin: '20px' }}>
-          <h2 className="my-4 text-4xl font-medium" style={{ color: 'white' }}>
+        </Button>
+        <div>
+          <h2 className="my-4 text-4xl font-medium">
             Te damos la bienvenida a Buddy
           </h2>
-          <h2 className="my-4 text-md font-light" style={{ color: 'white' }}>
+          <h2 className="my-4 text-md font-light">
             Controla el progreso y realiza las actividades de protección juntos.
           </h2>
           <Tabs
             key="underlined"
             variant="underlined"
             aria-label="Options"
-            color="success"
+            color="primary"
           >
             <Tab key="activities" title="Actividades">
               <ActivitiesList router={router} />

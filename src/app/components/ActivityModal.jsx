@@ -17,8 +17,7 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
       backdrop="blur"
       isOpen={isOpen}
       onOpenChange={onOpenChange}
-      style={{ backgroundColor: "#1E3646" }}
-      className=" min-w-[50%]"
+      className=" min-w-[50%] bg-T600"
     >
       <ModalContent>
         {(onClose) => (
@@ -32,18 +31,18 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
             </ModalHeader>
             <ModalBody>
               <h2 className="my-4 text-2xl">{content.title}</h2>
-              <p className="text-md font-light" style={{ color: "#B2B2B3" }}>
-                {content.body}
-              </p>
-              <p className="text-md font-light" style={{ color: "#B2B2B3" }}>
-                Presiona "
-                {variant === "start" ? "Continuar" : "Terminar actividad"}" para
-                finalizar.
+              <p className="text-md font-light text-B200">{content.body}</p>
+              <p className="text-md font-light text-B200">
+                {`Presiona "
+                ${
+                  variant === "start" ? "Continuar" : "Terminar actividad"
+                }" para
+                finalizar.`}
               </p>
             </ModalBody>
             <ModalFooter>
               <Button className="light" onPress={navigateTo}>
-                {variant==="start" ? "Continuar" : "Terminar actividad"}
+                {variant === "start" ? "Continuar" : "Terminar actividad"}
               </Button>
             </ModalFooter>
           </>

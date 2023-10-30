@@ -27,10 +27,10 @@ function AnswerRadio({ answers }) {
   const [selected, setSelected] = React.useState("");
 
   return (
-    <RadioGroup className="grow justify-center" value={selected} onValueChange={setSelected}>
+    <RadioGroup className="grow justify-center light" value={selected} onValueChange={setSelected}>
       {answers.map((answer) => {
         return (
-          <CustomRadio aria-label={answer.id} value={answer.id}>
+          <CustomRadio key={answer.id} aria-label={answer.id} value={answer.id}>
             {answer.title}
           </CustomRadio>
         );
