@@ -235,14 +235,8 @@ export default function EncuestaBox(props) {
   };
 
   return (
-    <div
-      className="p-8 min-h-[85%] rounded-3xl flex flex-col justify-center"
-      style={{ backgroundColor: "#3C6C8D2F" }}
-    >
-      <h2
-        className="my-4 text-2xl text-center font-light"
-        style={{ color: "white" }}
-      >
+    <div>
+      <h2 className="my-4 text-2xl text-center font-light">
         {questions[currentQuestion].question}
       </h2>
 
