@@ -6,6 +6,7 @@ import { Button } from "@nextui-org/button";
 import { FaAngleLeft } from "react-icons/fa";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import ActivitiesList from "../components/ActivitiesList";
+import ProgressBox from "../progress/ProgressBox";
 import { useRouter } from "next/navigation";
 import { Link } from "@nextui-org/link";
 
@@ -42,7 +43,9 @@ function ActivitiesHome() {
             <Tab key="activities" title="Actividades">
               <ActivitiesList router={router} />
             </Tab>
-            <Tab key="dashboard" title="Progreso"></Tab>
+            <Tab key="dashboard" title="Progreso">
+              <ProgressBox router={router} />
+            </Tab>
           </Tabs>
         </div>
       </div>

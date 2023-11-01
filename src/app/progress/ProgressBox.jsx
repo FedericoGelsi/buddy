@@ -50,7 +50,7 @@ export default function ProgressBox(props) {
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'inline-flex', marginTop: 16}}>
         <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={77} />
 
-        <div style={{flex: '1 1 0', alignSelf: 'stretch', padding: 24, background: 'white', borderRadius: 16, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
+        <div style={{flex: '1 0 0', alignSelf: 'stretch', padding: 24, background: 'white', borderRadius: 16, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
           {/* <HistoryChart/> */}
         </div>
       </div>

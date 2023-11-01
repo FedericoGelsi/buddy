@@ -6,17 +6,25 @@ const cleanPercentage = (percentage) => {
   return tooLow ? 0 : tooHigh ? 100 : +percentage;
 };
 
-const Circle = ({ colour, pct }) => {
-  const r = 40;
+const chartSizeMultiplier = (size) => {
+  return size * 96;
+};
+
+const fontSizeMultiplier = (size) => {
+  return size * 24;
+};
+
+const Circle = ({ color, size, pct }) => {
+  const r = size/2.45;
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
   return (
     <circle
       r={r}
-      cx={48}
-      cy={48}
+      cx={size/2}
+      cy={size/2}
       fill="transparent"
-      stroke={strokePct !== circ ? colour : ""} // remove colour as 0% sets full circumference
+      stroke={strokePct !== circ ? color : ""} // remove color as 0% sets full circumference
       strokeWidth={"1rem"}
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
@@ -25,30 +33,32 @@ const Circle = ({ colour, pct }) => {
   );
 };
 
-const Text = ({ percentage, unit }) => {
+const Text = ({ percentage, size, unit }) => {
+  const fontSize = fontSizeMultiplier(size);
   return (
     <text
       x="50%"
       y="50%"
       dominantBaseline="central"
       textAnchor="middle"
-      fontSize={"1.5em"} style={{color: '#2C2C2E', fontSize: 24, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'}}
+      fontSize={fontSize} style={{color: '#2C2C2E', fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'}}
     >
       {percentage.toFixed(0)}{unit}
     </text>
   );
 };
 
-const Pie = ({ percentage, color, unit }) => {
+const Pie = ({ percentage, color, size, unit }) => {
   const pct = cleanPercentage(percentage);
   const unitText = unit = null ? "%" : unit;
+  const chartSize = chartSizeMultiplier(size);
   return (
-    <svg width={96} height={96}>
-      <g transform={`rotate(-90 ${"48 48"})`}>
-        <Circle colour="lightgrey" />
-        <Circle colour={color} pct={pct} />
+    <svg width={chartSize} height={chartSize}>
+      <g transform={`rotate(-90 ${chartSize/2} ${chartSize/2})`}>
+        <Circle color="lightgrey" size={chartSize} />
+        <Circle color={color} size={chartSize} pct={pct} />
       </g>
-      <Text percentage={pct} unit={unitText} />
+      <Text percentage={pct} size={size} unit={unitText} />
     </svg>
   );
 };
