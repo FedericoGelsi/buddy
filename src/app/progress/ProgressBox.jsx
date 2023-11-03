@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import PercentageChartSmall from "./PercentageChartSmall";
 import PercentageChartBig from "./PercentageChartBig"
-import HistoryChart from "./HistoryChart"
+import HistoricalChart from "./HistoricalChart"
 import infoMark from "../assets/info-circle.png";
 
 export default function ProgressBox(props) {
@@ -47,12 +47,10 @@ export default function ProgressBox(props) {
         Capacidad de reconocimiento
       </div>
       
-      <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'inline-flex', marginTop: 16}}>
+      <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 16}}>
         <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={77} />
 
-        <div style={{flex: '1 0 0', alignSelf: 'stretch', padding: 24, background: 'white', borderRadius: 16, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'inline-flex'}}>
-          {/* <HistoryChart/> */}
-        </div>
+        <HistoricalChart title="Promedio histórico reconocimiento" data={[20, 40, 40, 50, 60, 80, 50, 90]}/>
       </div>
 
       <div style={{alignSelf: 'stretch', color: '#EBEBEC', fontSize: 20, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word', marginTop: 24}}>
