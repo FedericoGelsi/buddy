@@ -7,9 +7,8 @@ import {
   ModalFooter,
 } from "@nextui-org/modal";
 import { Button } from "@nextui-org/button";
-import Image from "next/image";
-import ActivityStartImg from "../assets/Enthusiastic-pana 1.png";
-import ActivityFinishImg from "../assets/Happy-student-pana.png";
+import ActivityStartSvg from "../assets/ActivityStartSvg";
+import ActivityFinishSvg from "../assets/ActivityFinishSvg";
 
 function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
   return (
@@ -23,11 +22,11 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col justify-center items-center">
-              <Image
-                className="max-h-fit"
-                src={variant === "start" ? ActivityStartImg : ActivityFinishImg}
-                alt="NextUI hero Image"
-              />
+              {variant === "start" ? (
+                <ActivityStartSvg />
+              ) : (
+                <ActivityFinishSvg />
+              )}
             </ModalHeader>
             <ModalBody>
               <h2 className="my-4 text-2xl">{content.title}</h2>

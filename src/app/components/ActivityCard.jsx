@@ -11,11 +11,12 @@ function ActivityCard(props) {
           props.isExclusive && "flex-col"
         }`}
       >
-        <Image
+        {props.cardImage}
+        {/* <Image
           className="max-h-fit"
           src={props.cardImage}
           alt="NextUI hero Image"
-        />
+        /> */}
         {props.isExclusive && (
           <div className="text-center self-stretch bg-Alert200 text-Alert500">
             Exclusivo para cuidadores

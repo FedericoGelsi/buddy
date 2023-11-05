@@ -6,7 +6,9 @@ import QuizImg from "../assets/quiz.png";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "./ActivityModal";
 import { useState } from "react";
-
+import SimulacionSvg from "../assets/SimulacionSvg";
+import IdentikitSvg from "../assets/IdentikitSvg";
+import QuizSvg from "../assets/QuizSvg";
 function ActivitiesList({ router }) {
   const [activity, setActivity] = useState("");
   const navigateTo = () => router.push(`/activities/${activity}`);
@@ -45,7 +47,7 @@ function ActivitiesList({ router }) {
           cardContent={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
           }
-          cardImage={SimulacionImg}
+          cardImage={<SimulacionSvg />}
           cardButtonTitle={"Comenzar actividad"}
           onPress={() => handleActivity(content[2].activity)}
           isDisabled={true}
@@ -55,7 +57,7 @@ function ActivitiesList({ router }) {
           cardContent={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
           }
-          cardImage={IdentikitImg}
+          cardImage={<IdentikitSvg />}
           cardButtonTitle={"Comenzar actividad"}
           onPress={() => handleActivity(content[1].activity)}
         />
@@ -64,7 +66,7 @@ function ActivitiesList({ router }) {
           cardContent={
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
           }
-          cardImage={QuizImg}
+          cardImage={<QuizSvg />}
           cardButtonTitle={"Comenzar actividad"}
           isExclusive={true}
           onPress={() => handleActivity(content[0].activity)}
