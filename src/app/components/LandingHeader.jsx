@@ -4,29 +4,23 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { Avatar } from "@nextui-org/avatar";
-import BuddyLogo from "../assets/Logo.png";
-import Image from "next/image";
-import { FaAngleDown } from "react-icons/fa";
-
+import { BuddyLogo } from "../assets/BuddyLogo";
+import { FaAngleDown } from "react-icons/fa6";
 
 function LandingHeader() {
   const username = "Mariano";
   return (
     <Navbar className="bg-T600" maxWidth="xl">
-      <NavbarBrand className="grow-0 mr-8">
-        {/* <Image className="px-4" src={BuddyLogo} alt="NextUI hero Image" /> */}
-        BUDDY LOGO
+      <NavbarBrand className="grow-0 h-[100%] mr-8 py-2">
+        <BuddyLogo/>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4 grow">
+      <NavbarContent className="hidden sm:flex gap-4 grow items-end pb-2">
         <NavbarItem isActive>
-          <Link color="P200" href="#" aria-current="page">
+          <Link className="text-P200" href="#" aria-current="page">
             Inicio
           </Link>
         </NavbarItem>
@@ -62,7 +56,7 @@ function LandingHeader() {
           <div className="flex items-center gap-4">
             <Avatar />
             Hola {username}
-            <FaAngleDown/>
+            <FaAngleDown className="text-P200" />
           </div>
         </NavbarItem>
       </NavbarContent>

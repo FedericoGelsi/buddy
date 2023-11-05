@@ -10,11 +10,6 @@ const config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -25,6 +20,7 @@ const config = {
         B200: "#B2B2B3",
         B500: "#2C2C2E",
         P200: "#9DD5D7",
+        P300: "#54B5BA",
         P500: "#08696D",
         T100: "#EBF0F3",
         T500: "#2A4B62",
