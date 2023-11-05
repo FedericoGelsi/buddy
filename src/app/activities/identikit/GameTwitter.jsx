@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import NextImage from "next/image";
-import OtakuImg from "../../assets/identikit/Twitter_Otaku 1.png";
+import OtakuImg from "../../assets/identikit/Twitter_Otaku.png";
 import { identikitContext } from "./identikitContext";
 import AnswerRadioGroup from "../quiz/AnswerRadioGroup";
 
