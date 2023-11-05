@@ -43,7 +43,7 @@ const GameTwitter = (props) => {
           {score + " de " + context.identikit[2].maxScore}
         </div>
         <div className="flex justify-center gap-4">
-          <NextImage src={OtakuImg} alt="Comparison Image" />
+          <NextImage src={OtakuImg} alt="Comparison Image" priority={true} placeholder="blur" />
         </div>
         <AnswerRadioGroup
           answers={answers}

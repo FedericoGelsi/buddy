@@ -38,6 +38,8 @@ function Image(props) {
         src={src}
         alt="Comparison Image"
         onClick={handleImageClick}
+        priority={true}
+        placeholder="blur"
       />
       {children}
     </div>
