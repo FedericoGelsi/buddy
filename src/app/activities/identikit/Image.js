@@ -4,7 +4,13 @@ import React from "react";
 import NextImage from "next/image";
 
 function Image(props) {
-  const { src, invisibleRectangles, onDifferenceClick, ...otherProps } = props;
+  const {
+    src,
+    invisibleRectangles,
+    onDifferenceClick,
+    children,
+    ...otherProps
+  } = props;
   const handleImageClick = (event) => {
     const clickX = event.nativeEvent.offsetX;
     const clickY = event.nativeEvent.offsetY;
@@ -33,6 +39,7 @@ function Image(props) {
         alt="Comparison Image"
         onClick={handleImageClick}
       />
+      {children}
     </div>
   );
 }

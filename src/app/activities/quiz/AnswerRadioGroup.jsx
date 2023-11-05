@@ -23,11 +23,21 @@ export const CustomRadio = (props) => {
   );
 };
 
-function AnswerRadio({ answers }) {
+function AnswerRadio(props) {
+  const { answers, handler, ...otherProps } = props;
   const [selected, setSelected] = React.useState("");
 
+  const handleSelected = (index) => {
+    setSelected(index);
+    handler(index);
+  };
   return (
-    <RadioGroup className="grow justify-center light" value={selected} onValueChange={setSelected}>
+    <RadioGroup
+      {...otherProps}
+      className="grow justify-center light"
+      value={selected}
+      onValueChange={handleSelected}
+    >
       {answers.map((answer) => {
         return (
           <CustomRadio key={answer.id} aria-label={answer.id} value={answer.id}>

@@ -21,6 +21,6 @@ export default function PercentageChartSmall(props) {
             <Pie percentage={props.value} color={chartColor} size={1} unit="/100" />
           </div>
       </div>
-      </div>
+      </div>  
   );
 }
