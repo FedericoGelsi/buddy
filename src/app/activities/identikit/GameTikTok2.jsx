@@ -26,7 +26,7 @@ const GameTikTok2 = (props) => {
           Elije la foto de perfil de TikTok que te parezca sospechosa.
         </h2>
 
-        <div className="bg-P500 py-2 px-8 rounded-xl text-3xl font-light">
+        <div className="hidden bg-P500 py-2 px-8 rounded-xl text-3xl font-light">
           {score + " de " + context.identikit[3].maxScore}
         </div>
       </div>
