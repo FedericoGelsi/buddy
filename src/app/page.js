@@ -1,4 +1,4 @@
-import LandingHeader from "./components/LandingHeader";
+import LandingHeader from "./landing/LandingHeader";
 
 export default function Home() {
   return (
