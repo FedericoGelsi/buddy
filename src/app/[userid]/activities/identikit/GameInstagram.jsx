@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ImageComparison from "./ImageComparison";
-import { RectangleBox, CircleBox } from "../../assets/identikit/SvgBoxes";
-import AdviceBox from "../../components/AdviceBox";
+import { RectangleBox, CircleBox } from "../../../assets/identikit/SvgBoxes";
+import AdviceBox from "../../../components/AdviceBox";
 import { identikitContext } from "./identikitContext";
 
 const GameInstagram = (props) => {

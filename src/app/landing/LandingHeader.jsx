@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -10,13 +11,13 @@ import { Button } from "@nextui-org/button";
 import { Avatar } from "@nextui-org/avatar";
 import { BuddyLogo } from "../assets/BuddyLogo";
 import { FaAngleDown } from "react-icons/fa6";
-
+import { UserContext } from "../contexts/UserContext";
 function LandingHeader() {
-  const username = "Mariano";
+  const user = useContext(UserContext);
   return (
     <Navbar className="bg-T600" maxWidth="xl">
       <NavbarBrand className="grow-0 h-[100%] mr-8 py-2">
-        <BuddyLogo/>
+        <BuddyLogo />
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4 grow items-end pb-2">
         <NavbarItem isActive>
@@ -45,7 +46,7 @@ function LandingHeader() {
           <Button
             as={Link}
             color="primary"
-            href="/activities"
+            href={`/${user._id}/activities`}
             className="bg-P500"
             radius="sm"
           >
@@ -55,7 +56,7 @@ function LandingHeader() {
         <NavbarItem>
           <div className="flex items-center gap-4">
             <Avatar />
-            Hola {username}
+            Hola {user.firstName + " " + user.lastName}
             <FaAngleDown className="text-P200" />
           </div>
         </NavbarItem>

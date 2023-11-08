@@ -1,18 +1,13 @@
-"use client";
-
+'use client'
 import React from "react";
-import BannerSuperior from "../components/BannerSuperior";
+import BannerSuperior from "../../components/BannerSuperior";
 import { Button } from "@nextui-org/button";
 import { FaAngleLeft } from "react-icons/fa";
 import { Tabs, Tab } from "@nextui-org/tabs";
-import ActivitiesList from "../components/ActivitiesList";
-import ProgressBox from "../progress/ProgressBox";
-import { useRouter } from "next/navigation";
+import ActivitiesList from "../../components/ActivitiesList";
+import ProgressBox from "../../progress/ProgressBox";
 import { Link } from "@nextui-org/link";
-
-function ActivitiesHome() {
-  const router = useRouter();
-
+const ActivitiesHome = () => {
   return (
     <div className="container flex-col">
       <BannerSuperior />
@@ -41,16 +36,16 @@ function ActivitiesHome() {
             color="primary"
           >
             <Tab key="activities" title="Actividades">
-              <ActivitiesList router={router} />
+              <ActivitiesList />
             </Tab>
             <Tab key="dashboard" title="Progreso">
-              <ProgressBox router={router} />
+              <ProgressBox />
             </Tab>
           </Tabs>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ActivitiesHome;

@@ -2,8 +2,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "./Image";
-import PIC1 from "../../assets/identikit/Instagram_Messi_OK.png";
-import PIC2 from "../../assets/identikit/Instagram_Messi.png";
+import PIC1 from "../../../assets/identikit/Instagram_Messi_OK.png";
+import PIC2 from "../../../assets/identikit/Instagram_Messi.png";
 
 function ImageComparison(props) {
   const { activeExplanation, setActiveExplanation, explanations } = props;

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import PIC1 from "../../assets/identikit/TikTok_Gamer_Falso.png";
-import PIC2 from "../../assets/identikit/TikTok_Gamer.png";
+import PIC1 from "../../../assets/identikit/TikTok_Gamer_Falso.png";
+import PIC2 from "../../../assets/identikit/TikTok_Gamer.png";
 import Image from "./Image";
 import { identikitContext } from "./identikitContext";
 

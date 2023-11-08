@@ -1,6 +1,6 @@
 import React from "react";
 import EncuestaBox from "./EncuestaBox";
-import ActivityWrapper from "../../components/ActivityWrapper";
+import ActivityWrapper from "../../../components/ActivityWrapper";
 
 function QuizHome() {
   return (

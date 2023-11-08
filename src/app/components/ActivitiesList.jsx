@@ -1,17 +1,18 @@
+"use client";
 import React from "react";
 import ActivityCard from "./ActivityCard";
-import SimulacionImg from "../assets/simulacion.png";
-import IdentikitImg from "../assets/identikit.png";
-import QuizImg from "../assets/quiz.png";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "./ActivityModal";
 import { useState } from "react";
 import SimulacionSvg from "../assets/SimulacionSvg";
 import IdentikitSvg from "../assets/IdentikitSvg";
 import QuizSvg from "../assets/QuizSvg";
+import { usePathname } from 'next/navigation'
+
 function ActivitiesList({ router }) {
   const [activity, setActivity] = useState("");
-  const navigateTo = () => router.push(`/activities/${activity}`);
+  const pathname = usePathname()
+  const navigateTo = `${pathname}/${activity}`;
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const handleActivity = (activity) => {
     setActivity(activity);

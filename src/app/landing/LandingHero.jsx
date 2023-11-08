@@ -1,12 +1,18 @@
-import React from "react";
+'use client'
+import React, { useContext } from "react";
 import Image from "next/image";
 import HeroImg from "../assets/landing/hero.jpeg";
 import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
+import { UserContext } from "../contexts/UserContext";
+
 const LandingHero = () => {
+  const user = useContext(UserContext);
+
   return (
     <div className="grid grid-cols-5">
       <div className="col-span-3 bg-T500">
-        <Content />
+        <Content userid={user._id} />
       </div>
       <div className="col-span-2">
         <Image src={HeroImg} />
@@ -17,7 +23,7 @@ const LandingHero = () => {
 
 export default LandingHero;
 
-const Content = (props) => {
+const Content = ({ userid }) => {
   return (
     <div className="h-full flex flex-col justify-center mx-8 gap-8">
       <h1 className="text-[3rem] font-bold">
@@ -31,14 +37,20 @@ const Content = (props) => {
       </p>
       <div className="flex gap-4">
         <Button
-          className="light text-light hover:text-black"
+          className="light text-white hover:text-black"
           size="lg"
           variant="ghost"
           radius="sm"
         >
           Contacto
         </Button>
-        <Button color="primary" radius="sm" size="lg">
+        <Button
+          as={Link}
+          color="primary"
+          radius="sm"
+          size="lg"
+          href={`${userid}/activities`}
+        >
           Explora las actividades
         </Button>
       </div>

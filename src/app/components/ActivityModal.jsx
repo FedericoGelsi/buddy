@@ -9,6 +9,7 @@ import {
 import { Button } from "@nextui-org/button";
 import ActivityStartSvg from "../assets/ActivityStartSvg";
 import ActivityFinishSvg from "../assets/ActivityFinishSvg";
+import {Link} from "@nextui-org/link";
 
 function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
   return (
@@ -40,7 +41,7 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
               </p>
             </ModalBody>
             <ModalFooter>
-              <Button className="light" onPress={navigateTo}>
+              <Button as={Link} className="light" href={navigateTo}>
                 {variant === "start" ? "Continuar" : "Terminar actividad"}
               </Button>
             </ModalFooter>
