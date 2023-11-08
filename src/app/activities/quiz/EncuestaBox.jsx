@@ -245,6 +245,8 @@ export default function EncuestaBox(props) {
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const router = useRouter();
+  
   const navigateTo = () => router.push(`/activities`);
 
   const [formData, setFormData] = useState({
