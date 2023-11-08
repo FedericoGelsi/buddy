@@ -5,10 +5,14 @@ import PercentageChartSmall from "./PercentageChartSmall";
 import PercentageChartBig from "./PercentageChartBig"
 import HistoricalChart from "./HistoricalChart"
 import infoMark from "../assets/info-circle.png";
+import { metrics } from "../api/metrics";
 
 export default function ProgressBox(props) {
+  //const userId = "653ee8a348d9007e5d810902";
+  //const data = {metrics}.metrics(userId);
+  //console.log(data);
   return (
-    <div style={{}}>
+    <div>
       <div style={{width: '100%', flex: '1 1 0', color: '#EBEBEC', fontSize: 24, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word', marginTop: 24}}>
         Progreso de las actividades
       </div>
