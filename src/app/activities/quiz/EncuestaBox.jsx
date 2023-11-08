@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 import AnswerRadioGroup from "./AnswerRadioGroup";
 import { Button } from "@nextui-org/button";
 import { FaAngleRight } from "react-icons/fa";
-import { select } from "@nextui-org/react";
+import { useDisclosure } from "@nextui-org/react";
+import ActivityModal from "../../components/ActivityModal";
+import { useRouter } from "next/navigation";
 
 export default function EncuestaBox(props) {
   const questions = [
@@ -241,8 +243,12 @@ export default function EncuestaBox(props) {
 
   const [currentAnswer, setCurrentAnswer] = useState(null);
 
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const navigateTo = () => router.push(`/activities`);
+
   const [formData, setFormData] = useState({
-    userId: "65339065a077fc21a551f932",
+    userId: "6535b00290c7ab25b991a0fc",
     parentForm: [],
   });
 
@@ -254,8 +260,6 @@ export default function EncuestaBox(props) {
   const nextQuestion = () => {
     if (currentAnswer !== null) {
       const currentQuestionData = {
-        questionId: questions[currentQuestion].id,
-        responseId: currentAnswer,
         score: questions[currentQuestion].answers.find(
           (answer) => answer.id === currentAnswer
         )?.score || 0,
@@ -274,15 +278,15 @@ export default function EncuestaBox(props) {
   //aca envia el POST, podriamos ver de mostrar un cartel de encuesta finalizada
   useEffect(() => {
     if(currentQuestion === 9 && formData.parentForm.length == 10){
-      const delay = 4000;
-      setTimeout(() => sendDataToServer(),delay);
+      sendDataToServer();
+      onOpen();
     }
   });
 
   const sendDataToServer = () => {
     console.log("ENVIADO")
     console.log(formData)
-    fetch("https://buddy-api-msil.onrender.com/parent_form", {
+    fetch("https://buddy-api-msil.onrender.com/parent_forms", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -319,6 +323,15 @@ export default function EncuestaBox(props) {
       >
             Siguiente
       </Button>
+      <ActivityModal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        navigateTo={navigateTo}
+        content={{
+          title: "¡Felicidades, has finalizado la actividad!",
+          body: "Has completado exitosamente el nivel. Espero que hayas comprendido la importancia de cuidarnos y considerar todos los aspectos cruciales al seguir a desconocidos en las redes sociales.",
+        }}
+      />
       </div>
     </div>
   );
