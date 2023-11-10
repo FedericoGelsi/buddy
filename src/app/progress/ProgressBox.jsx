@@ -9,15 +9,29 @@ import { metrics } from "../api/metrics";
 
 export default function ProgressBox(props) {
   const userId = "653ee8a348d9007e5d810902";
+  const [historyData, setHistoryData] = useState(null);
+  const [historyLabels, setHistoryLabels] = useState(null);
   
   var fetchData = function () {
     return {metrics}.metrics(userId);
   };
 
+  var getHistoryData = function (json){
+    const identikitHistory = json.identikit.history;
+    // Extract the values and store them in an array
+    const values = Object.values(identikitHistory).map((value) => (value !== null ? value * 100 : 0));
+    setHistoryData(values);
+    console.log(values);
+    const labels = Object.keys(identikitHistory);
+    setHistoryLabels(labels);
+    console.log(labels);
+  }
+
   const [data, setData] = useState(null);
   useEffect(() => {
     fetchData().then((jsonData) => {
       setData(jsonData);
+      getHistoryData(jsonData);
     });
   }, []);
   
@@ -64,7 +78,7 @@ export default function ProgressBox(props) {
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 16}}>
         <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={data ? data.identikit.totalScore : 0} />
 
-        <HistoricalChart title="Promedio histórico reconocimiento" data={[20, 40, 40, 50, 60, 80, 50, 90]}/>
+        <HistoricalChart title="Promedio histórico reconocimiento" labels={historyLabels} data={historyData}/>
       </div>
 
       <div style={{alignSelf: 'stretch', color: '#EBEBEC', fontSize: 20, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word', marginTop: 24}}>

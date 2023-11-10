@@ -29,9 +29,9 @@ import {
       }
   };
   
-  const labels = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+  //const labels = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
   
-  const data = (data) => {
+  const data = (labels, data) => {
     return {
         labels,
         datasets: [
@@ -53,7 +53,7 @@ import {
                     <div style={{alignSelf: 'stretch', color: '#2C2C2E', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'}}>{props.title}</div>
                 </div>
                 <div style={{width: "100%", height: 192, position: 'relative'}}>
-                    <Line options={options} data={data(props.data)} />
+                    <Line options={options} data={ data(props.labels, props.data)} />
                 </div>
             </div>
         </div>
