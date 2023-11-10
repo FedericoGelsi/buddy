@@ -9,6 +9,7 @@ import { metrics } from "../api/metrics";
 
 export default function ProgressBox(props) {
   const userId = "653ee8a348d9007e5d810902";
+  const [data, setData] = useState(null);
   const [historyData, setHistoryData] = useState(null);
   const [historyLabels, setHistoryLabels] = useState(null);
   
@@ -18,16 +19,12 @@ export default function ProgressBox(props) {
 
   var getHistoryData = function (json){
     const identikitHistory = json.identikit.history;
-    // Extract the values and store them in an array
     const values = Object.values(identikitHistory).map((value) => (value !== null ? value * 100 : 0));
     setHistoryData(values);
-    console.log(values);
     const labels = Object.keys(identikitHistory);
     setHistoryLabels(labels);
-    console.log(labels);
   }
 
-  const [data, setData] = useState(null);
   useEffect(() => {
     fetchData().then((jsonData) => {
       setData(jsonData);
