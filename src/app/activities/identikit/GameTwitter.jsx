@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import NextImage from "next/image";
-import OtakuImg from "../../assets/identikit/Twitter_Otaku 1.png";
+import OtakuImg from "../../assets/identikit/Twitter_Otaku.png";
 import { identikitContext } from "./identikitContext";
 import AnswerRadioGroup from "../quiz/AnswerRadioGroup";
 
@@ -43,7 +43,7 @@ const GameTwitter = (props) => {
           {score + " de " + context.identikit[2].maxScore}
         </div>
         <div className="flex justify-center gap-4">
-          <NextImage src={OtakuImg} alt="Comparison Image" />
+          <NextImage src={OtakuImg} alt="Comparison Image" priority={true} placeholder="blur" />
         </div>
         <AnswerRadioGroup
           answers={answers}

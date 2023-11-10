@@ -7,9 +7,8 @@ import {
   ModalFooter,
 } from "@nextui-org/modal";
 import { Button } from "@nextui-org/button";
-import Image from "next/image";
-import ActivityStartImg from "../assets/Enthusiastic-pana 1.png";
-import ActivityFinishImg from "../assets/Happy-student-pana.png";
+import ActivityStartSvg from "../assets/ActivityStartSvg";
+import ActivityFinishSvg from "../assets/ActivityFinishSvg";
 
 function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
   return (
@@ -23,21 +22,17 @@ function ActivityModal({ isOpen, onOpenChange, navigateTo, content, variant }) {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col justify-center items-center">
-              <Image
-                className="max-h-fit"
-                src={variant === "start" ? ActivityStartImg : ActivityFinishImg}
-                alt="NextUI hero Image"
-              />
+              {variant === "start" ? (
+                <ActivityStartSvg />
+              ) : (
+                <ActivityFinishSvg />
+              )}
             </ModalHeader>
             <ModalBody>
               <h2 className="my-4 text-2xl">{content.title}</h2>
               <p className="text-md font-light text-B200">{content.body}</p>
               <p className="text-md font-light text-B200">
-                {`Presiona "
-                ${
-                  variant === "start" ? "Continuar" : "Terminar actividad"
-                }" para
-                finalizar.`}
+                {variant === "start" ? 'Presiona "Continuar" para iniciar la actividad.' : 'Presiona "Terminar actividad" para finalizar.'}
               </p>
             </ModalBody>
             <ModalFooter>

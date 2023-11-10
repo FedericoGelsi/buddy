@@ -24,12 +24,12 @@ export const CustomRadio = (props) => {
 };
 
 function AnswerRadio(props) {
-  const { answers, handler, ...otherProps } = props;
+  const { answers,onAnswerSelected, handler, ...otherProps } = props;
   const [selected, setSelected] = React.useState("");
 
   const handleSelected = (index) => {
     setSelected(index);
-    handler(index);
+    onAnswerSelected(index);
   };
   return (
     <RadioGroup

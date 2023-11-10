@@ -6,7 +6,9 @@ import QuizImg from "../assets/quiz.png";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "./ActivityModal";
 import { useState } from "react";
-
+import SimulacionSvg from "../assets/SimulacionSvg";
+import IdentikitSvg from "../assets/IdentikitSvg";
+import QuizSvg from "../assets/QuizSvg";
 function ActivitiesList({ router }) {
   const [activity, setActivity] = useState("");
   const navigateTo = () => router.push(`/activities/${activity}`);
@@ -20,7 +22,7 @@ function ActivitiesList({ router }) {
     {
       activity: "quiz",
       title: "Estás a punto de iniciar el cuestionario",
-      body: "A continuación, te haremos una serie de preguntas sobre el Grooming. ¿Estás listo para desafiar tus habilidades?",
+      body: "A continuación, verás una serie de preguntas que ayudarán a entender cómo el menor actúa en diversas situaciones. Como responsable, podrás evaluar su comportamiento en este formulario.",
     },
     {
       activity: "identikit",
@@ -43,9 +45,9 @@ function ActivitiesList({ router }) {
         <ActivityCard
           cardTitle={"Juego de simulacion"}
           cardContent={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Tendrás la oportunidad de explorar un mundo abierto y entablar conversaciones con diversos personajes."
           }
-          cardImage={SimulacionImg}
+          cardImage={<SimulacionSvg />}
           cardButtonTitle={"Comenzar actividad"}
           onPress={() => handleActivity(content[2].activity)}
           isDisabled={true}
@@ -53,18 +55,18 @@ function ActivitiesList({ router }) {
         <ActivityCard
           cardTitle={"Identikit"}
           cardContent={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Te desafiaremos a poner a prueba tus habilidades para identificar perfiles sospechosos. Completa el formulario y demuestra tu conocimiento."
           }
-          cardImage={IdentikitImg}
+          cardImage={<IdentikitSvg />}
           cardButtonTitle={"Comenzar actividad"}
           onPress={() => handleActivity(content[1].activity)}
         />
         <ActivityCard
           cardTitle={"Aprende con nosotros"}
           cardContent={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Observa cómo tu menor actúa en diversas situaciones. Como responsable, podrás evaluar su comportamiento en este formulario."
           }
-          cardImage={QuizImg}
+          cardImage={<QuizSvg />}
           cardButtonTitle={"Comenzar actividad"}
           isExclusive={true}
           onPress={() => handleActivity(content[0].activity)}

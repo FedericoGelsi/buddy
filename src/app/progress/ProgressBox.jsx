@@ -59,12 +59,12 @@ export default function ProgressBox(props) {
 
       <div style={{alignSelf: 'stretch', height: 346, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 15}}>
           <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-                <PercentageChartSmall title="Exposición a contenido inapropiado" description="Evalúa el riesgo de que el menor se encuentre con contenido en línea inapropiado o perjudicial." value={data ? data.simulation.exposure.score : 0} />
-                <PercentageChartSmall title="Divulgación de datos personales" description="Expone la inclinación de los menores a compartir datos personales delicados, como nombres, emails, direcciones o números de teléfono." value={data ? data.simulation.personalData.score : 0} />
+                <PercentageChartSmall title="Reconocimiento ante contenido inapropiado" description="Evalúa la habilidad de reconocer y estar alerta ante la presencia de contenido inapropiado en línea." value={data ? data.simulation.exposure.score : 0} />
+                <PercentageChartSmall title="Conciencia de privacidad de datos personales" description="Indica la conciencia de un menor en lo que respecta a la privacidad de sus datos personales en línea, incluyendo información sensible como nombres, correos electrónicos, direcciones y números de teléfono." value={data ? data.simulation.personalData.score : 0} />
           </div>
           <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-                <PercentageChartSmall title="Compartir multimedia" description="Se refiere a la acción de compartir fotos y videos a través de plataformas digitales." value={data ? data.simulation.multimediaSharing.score : 0} />
-                <PercentageChartSmall title="Cambios en las amistades" description="Indica alteraciones en los vínculos y amistades del menor, que podrían ser el resultado de interacciones en línea o fuera de línea." value={data ? data.simulation.friendship.score : 0} />
+                <PercentageChartSmall title="Precaución al compartir multimedia" description="Se refiere a cuánto cuidado tiene el menor al compartir fotos y videos propios en plataformas digitales." value={data ? data.simulation.multimediaSharing.score : 0} />
+                <PercentageChartSmall title="Estabilidad en las amistades" description="Indica alteraciones en los vínculos y amistades del menor, que podrían ser el resultado de interacciones en línea o fuera de línea." value={data ? data.simulation.friendship.score : 0} />
           </div>
       </div>
 
