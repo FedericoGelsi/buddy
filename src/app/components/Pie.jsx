@@ -43,7 +43,7 @@ const Text = ({ percentage, size, unit }) => {
       textAnchor="middle"
       fontSize={fontSize} style={{color: '#2C2C2E', fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'}}
     >
-      {percentage.toFixed(0)}<tspan font-size={fontSize/2}>{unit}</tspan>
+      {percentage.toFixed(0)}<tspan fontSize={fontSize/2}>{unit}</tspan>
     </text>
   );
 };

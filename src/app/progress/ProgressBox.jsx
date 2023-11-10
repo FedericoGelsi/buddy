@@ -1,14 +1,39 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import PercentageChartSmall from "./PercentageChartSmall";
 import PercentageChartBig from "./PercentageChartBig"
 import HistoricalChart from "./HistoricalChart"
 import infoMark from "../assets/info-circle.png";
+import { metrics } from "../api/metrics";
 
 export default function ProgressBox(props) {
+  const userId = "653ee8a348d9007e5d810902";
+  const [data, setData] = useState(null);
+  const [historyData, setHistoryData] = useState(null);
+  const [historyLabels, setHistoryLabels] = useState(null);
+  
+  var fetchData = function () {
+    return {metrics}.metrics(userId);
+  };
+
+  var getHistoryData = function (json){
+    const identikitHistory = json.identikit.history;
+    const values = Object.values(identikitHistory).map((value) => (value !== null ? value * 100 : 0));
+    setHistoryData(values);
+    const labels = Object.keys(identikitHistory);
+    setHistoryLabels(labels);
+  }
+
+  useEffect(() => {
+    fetchData().then((jsonData) => {
+      setData(jsonData);
+      getHistoryData(jsonData);
+    });
+  }, []);
+  
   return (
-    <div style={{}}>
+    <div>
       <div style={{width: '100%', flex: '1 1 0', color: '#EBEBEC', fontSize: 24, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word', marginTop: 24}}>
         Progreso de las actividades
       </div>
@@ -34,12 +59,12 @@ export default function ProgressBox(props) {
 
       <div style={{alignSelf: 'stretch', height: 346, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 15}}>
           <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-                <PercentageChartSmall title="Reconocimiento ante contenido inapropiado" description="Evalúa la habilidad de reconocer y estar alerta ante la presencia de contenido inapropiado en línea." value={88} />
-                <PercentageChartSmall title="Conciencia de privacidad de datos personales" description="Indica la conciencia de un menor en lo que respecta a la privacidad de sus datos personales en línea, incluyendo información sensible como nombres, correos electrónicos, direcciones y números de teléfono." value={24} />
+                <PercentageChartSmall title="Reconocimiento ante contenido inapropiado" description="Evalúa la habilidad de reconocer y estar alerta ante la presencia de contenido inapropiado en línea." value={data ? data.simulation.exposure.score : 0} />
+                <PercentageChartSmall title="Conciencia de privacidad de datos personales" description="Indica la conciencia de un menor en lo que respecta a la privacidad de sus datos personales en línea, incluyendo información sensible como nombres, correos electrónicos, direcciones y números de teléfono." value={data ? data.simulation.personalData.score : 0} />
           </div>
           <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-                <PercentageChartSmall title="Precaución al compartir multimedia" description="Se refiere a cuánto cuidado tiene el menor al compartir fotos y videos propios en plataformas digitales." value={59} />
-                <PercentageChartSmall title="Estabilidad en las amistades" description="Indica alteraciones en los vínculos y amistades del menor, que podrían ser el resultado de interacciones en línea o fuera de línea." value={92} />
+                <PercentageChartSmall title="Precaución al compartir multimedia" description="Se refiere a cuánto cuidado tiene el menor al compartir fotos y videos propios en plataformas digitales." value={data ? data.simulation.multimediaSharing.score : 0} />
+                <PercentageChartSmall title="Estabilidad en las amistades" description="Indica alteraciones en los vínculos y amistades del menor, que podrían ser el resultado de interacciones en línea o fuera de línea." value={data ? data.simulation.friendship.score : 0} />
           </div>
       </div>
 
@@ -48,9 +73,9 @@ export default function ProgressBox(props) {
       </div>
       
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 16}}>
-        <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={77} />
+        <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={data ? data.identikit.totalScore : 0} />
 
-        <HistoricalChart title="Promedio histórico reconocimiento" data={[20, 40, 40, 50, 60, 80, 50, 90]}/>
+        <HistoricalChart title="Promedio histórico reconocimiento" labels={historyLabels} data={historyData}/>
       </div>
 
       <div style={{alignSelf: 'stretch', color: '#EBEBEC', fontSize: 20, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word', marginTop: 24}}>
@@ -58,15 +83,15 @@ export default function ProgressBox(props) {
       </div>
       
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex', marginTop: 16}}>
-        <PercentageChartBig title="Indicador de situación" value={65} />
+        <PercentageChartBig title="Indicador de situación" value={data ? data.parentForm.totalScore : 0} />
         <div style={{flex: '1 1 0', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
             <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-              <PercentageChartSmall title="Evaluación de bienestar del menor" description="Combina indicadores y sintomatología para evaluar la situación del menor en el contexto del grooming." value={88} />
-              <PercentageChartSmall title="Tendencia en los hábitos" description="Se proporciona una visión del comportamiento y actividades del menor a cargo." value={24} />
+              <PercentageChartSmall title="Evaluación de bienestar del menor" description="Combina indicadores y sintomatología para evaluar la situación del menor en el contexto del grooming." value={data ? data.parentForm.categories.welfare.score : 0} />
+              <PercentageChartSmall title="Tendencia en los hábitos" description="Se proporciona una visión del comportamiento y actividades del menor a cargo." value={data ? data.parentForm.categories.habits.score : 0} />
             </div>
             <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex'}}>
-              <PercentageChartSmall title="Dinámica de relaciones del menor" description="Visión general de sus interacciones sociales y puede ayudar a identificar patrones y tendencias en sus relaciones." value={95} />
-              <PercentageChartSmall title="Análisis del comportamiento" description="Ofrece una perspectiva sobre cómo ciertos comportamientos pueden afectar su bienestar y desarrollo." value={67} />
+              <PercentageChartSmall title="Dinámica de relaciones del menor" description="Visión general de sus interacciones sociales y puede ayudar a identificar patrones y tendencias en sus relaciones." value={data ? data.parentForm.categories.socialInteractions.score : 0} />
+              <PercentageChartSmall title="Análisis del comportamiento" description="Ofrece una perspectiva sobre cómo ciertos comportamientos pueden afectar su bienestar y desarrollo." value={data ? data.parentForm.categories.behaviour.score : 0} />
             </div>
         </div>
       </div>
