@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" style={{ scrollBehavior: "smooth" }}>
       <body className={`${inter.className} bg-B100`}>
         <Providers>{children}</Providers>
       </body>

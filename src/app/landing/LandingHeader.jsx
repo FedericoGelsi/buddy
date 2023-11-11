@@ -6,7 +6,7 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/navbar";
-import { Link } from "@nextui-org/link";
+import Link from "next/link";
 import { Button } from "@nextui-org/button";
 import { Avatar } from "@nextui-org/avatar";
 import { BuddyLogo } from "../assets/BuddyLogo";
@@ -21,22 +21,22 @@ function LandingHeader() {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4 grow items-end pb-2">
         <NavbarItem isActive>
-          <Link className="text-P200" href="#" aria-current="page">
+          <Link className="text-P200" href="/#" aria-current="page">
             Inicio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#" aria-current="page">
+          <Link color="foreground" href="/#grooming" aria-current="page">
             Grooming
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/#pricing">
             Planes
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/#contact">
             Contacto
           </Link>
         </NavbarItem>
@@ -55,7 +55,7 @@ function LandingHeader() {
         </NavbarItem>
         <NavbarItem>
           <div className="flex items-center gap-4">
-            <Avatar />
+            <Avatar src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" />
             Hola {user.firstName + " " + user.lastName}
             <FaAngleDown className="text-P200" />
           </div>

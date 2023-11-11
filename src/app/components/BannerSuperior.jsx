@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { BuddyLogo } from "../assets/BuddyLogo";
 import { Avatar } from "@nextui-org/avatar";
 import { UserContext } from "../contexts/UserContext";
@@ -14,7 +14,7 @@ export default function BannerSuperior() {
 
         <div>
           <Avatar
-            src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+            src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp"
             size="lg"
           />
         </div>

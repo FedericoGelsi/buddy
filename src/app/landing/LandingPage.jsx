@@ -1,12 +1,22 @@
 import React from "react";
 import LandingHeader from "./LandingHeader";
 import LandingHero from "./LandingHero";
+import LandingFeatures from "./LandingFeatures";
+import LandingContact from "./LandingContact";
+import LandingBanner from "./LandingBanner";
+import LandingPricing from "./LandingPricing";
+import LandingFooter from "./LandingFooter";
+import {Spacer} from "@nextui-org/spacer";
 const LandingPage = () => {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <LandingHeader />
       <LandingHero />
-      <p className="text-6xl text-B500">Page under contruction</p>
+      <LandingFeatures />
+      <LandingBanner />
+      <LandingPricing />
+      <LandingContact />
+      <LandingFooter />
     </div>
   );
 };

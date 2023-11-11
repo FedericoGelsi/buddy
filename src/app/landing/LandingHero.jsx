@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useContext } from "react";
 import Image from "next/image";
 import HeroImg from "../assets/landing/hero.jpeg";
@@ -15,7 +15,7 @@ const LandingHero = () => {
         <Content userid={user._id} />
       </div>
       <div className="col-span-2">
-        <Image src={HeroImg} />
+        <Image src={HeroImg} alt="Hero img" />
       </div>
     </div>
   );
