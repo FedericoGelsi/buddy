@@ -3,6 +3,7 @@ import { BuddyLogo } from "../assets/BuddyLogo";
 import { Avatar } from "@nextui-org/avatar";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
+import AvatarSvg from "../assets/AvatarSvg";
 export default function BannerSuperior() {
   const user = useContext(UserContext);
 
@@ -12,11 +13,8 @@ export default function BannerSuperior() {
       <div className="rounded-full flex justify-between items-center pl-6 gap-4 bg-T600">
         <div className="text-light">{user.firstName + " " + user.lastName}</div>
 
-        <div>
-          <Avatar
-            src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp"
-            size="lg"
-          />
+        <div className="w-[3rem]">
+          <AvatarSvg />
         </div>
       </div>
     </div>

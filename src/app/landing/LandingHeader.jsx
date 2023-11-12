@@ -8,7 +8,7 @@ import {
 } from "@nextui-org/navbar";
 import Link from "next/link";
 import { Button } from "@nextui-org/button";
-import { Avatar } from "@nextui-org/avatar";
+import AvatarSvg from "../assets/AvatarSvg";
 import { BuddyLogo } from "../assets/BuddyLogo";
 import { FaAngleDown } from "react-icons/fa6";
 import { UserContext } from "../contexts/UserContext";
@@ -55,7 +55,9 @@ function LandingHeader() {
         </NavbarItem>
         <NavbarItem>
           <div className="flex items-center gap-4">
-            <Avatar src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" />
+            <div className="w-[3rem]">
+              <AvatarSvg />
+            </div>
             Hola {user.firstName + " " + user.lastName}
             <FaAngleDown className="text-P200" />
           </div>
