@@ -1,4 +1,4 @@
-import { post } from "./api";
+import { post, get } from "./api";
 export async function createParent(parent) {
   // PARENT JSON
   // {
@@ -31,6 +31,17 @@ export async function createChildren(children) {
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
   const res = await post(uri, children);
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to create profile data");
+  }
+
+  return res.json();
+}
+
+export async function getUserById(id) {
+  const uri = `/users/${id}`;
+  const res = await get(uri);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to create profile data");

@@ -22,6 +22,8 @@ const config = {
         P200: "#9DD5D7",
         P300: "#54B5BA",
         P500: "#08696D",
+        S300: "#AFD778",
+        S400: "#8DC63F",
         T100: "#EBF0F3",
         T500: "#2A4B62",
         T600: "#1E3646",
@@ -30,7 +32,7 @@ const config = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui(), require("@tailwindcss/forms")],
 };
 
 export default config;
