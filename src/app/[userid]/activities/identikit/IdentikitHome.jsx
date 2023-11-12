@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React, { useContext, useState } from "react";
 import ActivityWrapper from "../../../components/ActivityWrapper";
 import { Button } from "@nextui-org/button";
@@ -13,13 +12,12 @@ import GameTwitter2 from "./GameTwitter2";
 import GameTwitter from "./GameTwitter";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "../../../components/ActivityModal";
-import { useRouter } from "next/navigation";
+import { UserContext } from "../../../contexts/UserContext";
 
 function IdentikitHome() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const router = useRouter();
-
-  const navigateTo = () => router.back();
+  const user = useContext(UserContext);
+  const navigateTo = `/${user._id}/activities`;
 
   const [score, setScore] = useState(0);
   const context = useContext(identikitContext);
