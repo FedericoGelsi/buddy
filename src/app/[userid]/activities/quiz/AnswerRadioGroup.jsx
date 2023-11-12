@@ -24,19 +24,13 @@ export const CustomRadio = (props) => {
 };
 
 function AnswerRadio(props) {
-  const { answers, handler, ...otherProps } = props;
-  const [selected, setSelected] = React.useState("");
-
-  const handleSelected = (index) => {
-    setSelected(index);
-    handler(index);
-  };
+  const { answers, handler, current, ...otherProps } = props;
   return (
     <RadioGroup
       {...otherProps}
       className="grow justify-center light"
-      value={selected}
-      onValueChange={handleSelected}
+      value={current}
+      onValueChange={handler}
     >
       {answers.map((answer) => {
         return (

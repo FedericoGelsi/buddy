@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NextImage from "next/image";
 import OtakuImg from "../../../assets/identikit/Twitter_Otaku.png";
 import { identikitContext } from "./identikitContext";
@@ -7,11 +7,16 @@ import AnswerRadioGroup from "../quiz/AnswerRadioGroup";
 const GameTwitter = (props) => {
   const context = useContext(identikitContext);
   const { score, setScore } = props;
+  const [currentAnswer, setCurrentAnswer] = useState(null);
 
-  const handleAnswer = (index) => {
-    const answer = answers.at(index - 1);
+  useEffect(() => {
+    const answer = answers.at(currentAnswer - 1);
     if (answer.isCorrect) setScore(context.identikit[2].maxScore);
     else setScore(0);
+  }, [currentAnswer]);
+
+  const handleAnswer = (index) => {
+    setCurrentAnswer(index);
   };
   const answers = [
     {
@@ -54,6 +59,7 @@ const GameTwitter = (props) => {
           answers={answers}
           orientation="horizontal"
           handler={handleAnswer}
+          current={currentAnswer}
         />
       </div>
     </div>

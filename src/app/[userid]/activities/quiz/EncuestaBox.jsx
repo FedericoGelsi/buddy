@@ -227,9 +227,11 @@ export default function EncuestaBox(props) {
     },
   ];
 
+  const [currentAnswer, setCurrentAnswer] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const nextQuestion = () => {
     if (currentQuestion < questions.length) {
+      setCurrentAnswer(null);
       setCurrentQuestion(currentQuestion + 1);
     }
   };
@@ -241,7 +243,11 @@ export default function EncuestaBox(props) {
       </h2>
 
       <div className="flex flex-col gap-8 mx-64 grow">
-        <AnswerRadioGroup answers={questions[currentQuestion].answers} />
+        <AnswerRadioGroup
+          answers={questions[currentQuestion].answers}
+          handler={setCurrentAnswer}
+          current={currentAnswer}
+        />
       </div>
       <div className="flex justify-end">
         <Button
