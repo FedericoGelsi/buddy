@@ -130,9 +130,9 @@ const LandingContact = () => {
                     )}
                   />
                   <div className="text-sm leading-6 text-gray-600">
-                    By selecting this, you agree to our{" "}
+                    Al seleccionar, usted está de acuerdo con nuestra{" "}
                     <a className="font-semibold text-primary">
-                      privacy&nbsp;policy
+                      política de privacidad
                     </a>
                     .
                   </div>
