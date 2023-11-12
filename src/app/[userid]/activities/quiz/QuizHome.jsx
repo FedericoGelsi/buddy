@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import EncuestaBox from "./EncuestaBox";
 import ActivityWrapper from "../../../components/ActivityWrapper";

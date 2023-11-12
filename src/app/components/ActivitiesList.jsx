@@ -7,11 +7,11 @@ import { useState } from "react";
 import SimulacionSvg from "../assets/SimulacionSvg";
 import IdentikitSvg from "../assets/IdentikitSvg";
 import QuizSvg from "../assets/QuizSvg";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
-function ActivitiesList({ router }) {
+function ActivitiesList() {
   const [activity, setActivity] = useState("");
-  const pathname = usePathname()
+  const pathname = usePathname();
   const navigateTo = `${pathname}/${activity}`;
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const handleActivity = (activity) => {
