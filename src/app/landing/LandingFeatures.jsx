@@ -44,8 +44,9 @@ const LandingFeatures = () => {
         </h1>
       </div>
       <div className="grid grid-cols-3 grid-rows-2 gap-8">
-        {cards.map((card) => (
+        {cards.map((card, index) => (
           <LandingFeatureCard
+            key={index}
             title={card.title}
             body={card.body}
             icon={card.icon}

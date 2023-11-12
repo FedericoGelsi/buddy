@@ -9,9 +9,9 @@ import {
   FaPuzzlePiece,
 } from "react-icons/fa";
 const LandingFeatureCard = (props) => {
-  const { title, icon, body } = props;
+  const { title, icon, body, key } = props;
   return (
-    <Card className="light">
+    <Card key={key} className="light">
       <CardHeader className="flex">
         <div className="rounded-xl p-4 bg-S400 shadow-md">
           {icon === "FaUnlock" && <FaUnlock className="text-2xl text-white" />}

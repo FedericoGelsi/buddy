@@ -56,8 +56,8 @@ const LandingPricing = () => {
           Elige el plan perfecto para proteger a tu familia en línea
         </h1>
         <div className="mt-16 grid grid-cols-3 gap-x-4 place-items-stretch">
-          {plans.map((plan) => (
-            <PricingCard data={plan} isFeatured={plan.isFeatured} />
+          {plans.map((plan, index) => (
+            <PricingCard key={index} data={plan} isFeatured={plan.isFeatured} />
           ))}
         </div>
       </div>
@@ -68,9 +68,9 @@ const LandingPricing = () => {
 export default LandingPricing;
 
 const PricingCard = (props) => {
-  const { data, isFeatured } = props;
+  const { data, isFeatured, key } = props;
   return (
-    <div className="rounded-3xl ring-1 ring-gray-200">
+    <div key={key} className="rounded-3xl ring-1 ring-gray-200">
       <div
         className={
           isFeatured
@@ -91,7 +91,12 @@ const PricingCard = (props) => {
               {data.currency} /mes.
             </span>
           </p>
-          <Button type="submit" className="mt-10 w-full" color="primary" radius="sm">
+          <Button
+            type="submit"
+            className="mt-10 w-full"
+            color="primary"
+            radius="sm"
+          >
             Empezar ahora
           </Button>
           <Divider className="my-4 bg-B200" />
