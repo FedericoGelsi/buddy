@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import BuddyButton from "../components/BuddyButton";
+import BuddyButton from "./BuddyButton";
 import Image from "next/image";
 
 function ActivityCard(props) {
@@ -12,11 +12,6 @@ function ActivityCard(props) {
         }`}
       >
         {props.cardImage}
-        {/* <Image
-          className="max-h-fit"
-          src={props.cardImage}
-          alt="NextUI hero Image"
-        /> */}
         {props.isExclusive && (
           <div className="text-center self-stretch bg-Alert200 text-Alert500">
             Exclusivo para cuidadores

@@ -4,9 +4,9 @@ import ActivityCard from "./ActivityCard";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "./ActivityModal";
 import { useState } from "react";
-import SimulacionSvg from "../assets/SimulacionSvg";
-import IdentikitSvg from "../assets/IdentikitSvg";
-import QuizSvg from "../assets/QuizSvg";
+import SimulacionSvg from "../../assets/SimulacionSvg";
+import IdentikitSvg from "../../assets/IdentikitSvg";
+import QuizSvg from "../../assets/QuizSvg";
 import { usePathname } from "next/navigation";
 
 function ActivitiesList() {
@@ -23,7 +23,7 @@ function ActivitiesList() {
     {
       activity: "quiz",
       title: "Estás a punto de iniciar el cuestionario",
-      body: "A continuación, te haremos una serie de preguntas sobre el Grooming. ¿Estás listo para desafiar tus habilidades?",
+      body: "A continuación, verás una serie de preguntas que ayudarán a entender cómo el menor actúa en diversas situaciones. Como responsable, podrás evaluar su comportamiento en este formulario.",
     },
     {
       activity: "identikit",
@@ -46,7 +46,7 @@ function ActivitiesList() {
         <ActivityCard
           cardTitle={"Juego de simulacion"}
           cardContent={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Tendrás la oportunidad de explorar un mundo abierto y entablar conversaciones con diversos personajes."
           }
           cardImage={<SimulacionSvg />}
           cardButtonTitle={"Comenzar actividad"}
@@ -56,7 +56,7 @@ function ActivitiesList() {
         <ActivityCard
           cardTitle={"Identikit"}
           cardContent={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Te desafiaremos a poner a prueba tus habilidades para identificar perfiles sospechosos. Completa el formulario y demuestra tu conocimiento."
           }
           cardImage={<IdentikitSvg />}
           cardButtonTitle={"Comenzar actividad"}
@@ -65,7 +65,7 @@ function ActivitiesList() {
         <ActivityCard
           cardTitle={"Aprende con nosotros"}
           cardContent={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            "Observa cómo tu menor actúa en diversas situaciones. Como responsable, podrás evaluar su comportamiento en este formulario."
           }
           cardImage={<QuizSvg />}
           cardButtonTitle={"Comenzar actividad"}

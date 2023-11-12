@@ -1,10 +1,10 @@
 'use client'
 import React from "react";
-import BannerSuperior from "../../components/BannerSuperior";
+import BannerSuperior from "./BannerSuperior";
 import { Button } from "@nextui-org/button";
 import { FaAngleLeft } from "react-icons/fa";
 import { Tabs, Tab } from "@nextui-org/tabs";
-import ActivitiesList from "../../components/ActivitiesList";
+import ActivitiesList from "./ActivitiesList";
 import ProgressBox from "../../progress/ProgressBox";
 import { Link } from "@nextui-org/link";
 const ActivitiesHome = () => {

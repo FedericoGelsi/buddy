@@ -1,8 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AnswerRadioGroup from "./AnswerRadioGroup";
 import { Button } from "@nextui-org/button";
 import { FaAngleRight } from "react-icons/fa";
+import { useDisclosure } from "@nextui-org/react";
+import ActivityModal from "../ActivityModal";
+import { UserContext } from "../../../contexts/UserContext";
 
 export default function EncuestaBox(props) {
   const questions = [
@@ -14,19 +17,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 25,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 15,
         },
       ],
+      category: "welfare",
     },
     {
       id: 2,
@@ -36,19 +40,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 25,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 15,
         },
       ],
+      category: "welfare",
     },
     {
       id: 3,
@@ -58,19 +63,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 25,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 15,
         },
       ],
+      category: "welfare",
     },
     {
       id: 4,
@@ -80,19 +86,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 25,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 15,
         },
       ],
+      category: "welfare",
     },
     {
       id: 5,
@@ -102,19 +109,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 50,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 25,
         },
       ],
+      category: "habits",
     },
     {
       id: 6,
@@ -124,19 +132,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 50,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 25,
         },
       ],
+      category: "habits",
     },
     {
       id: 7,
@@ -146,19 +155,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 50,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 25,
         },
       ],
+      category: "socialInteractions",
     },
     {
       id: 8,
@@ -167,19 +177,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 50,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 25,
         },
       ],
+      category: "socialInteractions",
     },
     {
       id: 9,
@@ -189,19 +200,20 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 50,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 25,
         },
       ],
+      category: "behaviour",
     },
     {
       id: 10,
@@ -211,29 +223,92 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          isCorrect: false,
+          score: 50,
         },
         {
           id: 2,
           title: "No",
-          isCorrect: true,
+          score: 0,
         },
         {
           id: 3,
           title: "No estoy seguro",
-          isCorrect: false,
+          score: 25,
         },
       ],
+      category: "behaviour",
     },
   ];
 
-  const [currentAnswer, setCurrentAnswer] = useState(null);
+  const user = useContext(UserContext);
+  const navigateTo = `/${user._id}/activities`;
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const [currentAnswer, setCurrentAnswer] = useState(null);
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const [formData, setFormData] = useState({
+    userId: "6535b00290c7ab25b991a0fc",
+    parentForm: [],
+  });
+
+  const handleAnswerSelection = (selectedAnswerId) => {
+    console.log("Selected Answer ID: " + selectedAnswerId);
+    setCurrentAnswer(selectedAnswerId);
+  };
+
   const nextQuestion = () => {
     if (currentQuestion < questions.length) {
       setCurrentAnswer(null);
       setCurrentQuestion(currentQuestion + 1);
     }
+  };
+
+  const handleSubmit = () => {
+    onOpen();
+    const currentQuestionData = {
+      score:
+        questions[currentQuestion].answers.find(
+          (answer) => answer.id === currentAnswer
+        )?.score || 0,
+      category: questions[currentQuestion].category,
+    };
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      parentForm: [...prevFormData.parentForm, currentQuestionData],
+    }));
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
+
+  //aca envia el POST, podriamos ver de mostrar un cartel de encuesta finalizada
+  useEffect(() => {
+    if (currentQuestion === 9 && formData.parentForm.length == 10) {
+      sendDataToServer();
+      onOpen();
+    }
+  });
+
+  const sendDataToServer = () => {
+    console.log("ENVIADO");
+    console.log(formData);
+    fetch("https://buddy-api-msil.onrender.com/parent_forms", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
   };
 
   return (
@@ -245,19 +320,39 @@ export default function EncuestaBox(props) {
       <div className="flex flex-col gap-8 mx-64 grow">
         <AnswerRadioGroup
           answers={questions[currentQuestion].answers}
-          handler={setCurrentAnswer}
+          handler={handleAnswerSelection}
           current={currentAnswer}
         />
       </div>
       <div className="flex justify-end">
-        <Button
-          onClick={nextQuestion}
-          className="light"
-          size="lg"
-          endContent={<FaAngleRight />}
-        >
-          Siguiente
-        </Button>
+        {currentQuestion == questions.length - 1 && currentAnswer != null ? (
+          <Button
+            className="light"
+            size="lg"
+            color="primary"
+            onClick={handleSubmit}
+          >
+            Terminar actividad
+          </Button>
+        ) : (
+          <Button
+            onClick={() => nextQuestion()}
+            className="light"
+            size="lg"
+            endContent={<FaAngleRight />}
+          >
+            Siguiente
+          </Button>
+        )}
+        <ActivityModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          navigateTo={navigateTo}
+          content={{
+            title: "¡Felicidades, has finalizado la actividad!",
+            body: "Has completado exitosamente el nivel. Espero que hayas comprendido la importancia de cuidarnos y considerar todos los aspectos cruciales al seguir a desconocidos en las redes sociales.",
+          }}
+        />
       </div>
     </div>
   );

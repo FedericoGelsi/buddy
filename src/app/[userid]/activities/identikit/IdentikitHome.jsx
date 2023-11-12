@@ -1,6 +1,6 @@
 "use client"
 import React, { useContext, useState } from "react";
-import ActivityWrapper from "../../../components/ActivityWrapper";
+import ActivityWrapper from "../ActivityWrapper";
 import { Button } from "@nextui-org/button";
 import { FaAngleRight } from "react-icons/fa";
 import { submitForm } from "../../../api/identikit";
@@ -11,7 +11,7 @@ import GameTikTok2 from "./GameTikTok2";
 import GameTwitter2 from "./GameTwitter2";
 import GameTwitter from "./GameTwitter";
 import { useDisclosure } from "@nextui-org/react";
-import ActivityModal from "../../../components/ActivityModal";
+import ActivityModal from "../ActivityModal";
 import { UserContext } from "../../../contexts/UserContext";
 
 function IdentikitHome() {
@@ -63,7 +63,6 @@ function IdentikitHome() {
             className="light"
             size="lg"
             color="primary"
-            // endContent={<FaAngleRight />}
             onClick={handleSubmit}
           >
             Terminar actividad

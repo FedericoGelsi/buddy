@@ -1,8 +1,8 @@
 "use client";
 import React, { useContext } from "react";
-import { BuddyLogo } from "../assets/BuddyLogo";
-import AvatarSvg from "../assets/AvatarSvg";
-import { UserContext } from "../contexts/UserContext";
+import { BuddyLogo } from "../../assets/BuddyLogo";
+import AvatarSvg from "../../assets/AvatarSvg";
+import { UserContext } from "../../contexts/UserContext";
 export default function BannerSuperior() {
   const user = useContext(UserContext);
   return (
