@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useContext, useState } from "react";
 import ActivityWrapper from "../ActivityWrapper";
 import { Button } from "@nextui-org/button";
@@ -13,6 +13,7 @@ import GameTwitter from "./GameTwitter";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "../ActivityModal";
 import { UserContext } from "../../../contexts/UserContext";
+import { Progress } from "@nextui-org/progress";
 
 function IdentikitHome() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -41,6 +42,16 @@ function IdentikitHome() {
 
   return (
     <ActivityWrapper>
+      <div className="w-full px-16 mb-4">
+        <Progress
+          aria-label="currentProgress"
+          size="lg"
+          value={currentGame}
+          maxValue={5}
+          showValueLabel={true}
+          valueLabel={`Identikit ${currentGame} de ${5}`}
+        />
+      </div>
       {currentGame == 1 && <GameInstagram score={score} setScore={setScore} />}
       {currentGame == 2 && <GameTikTok score={score} setScore={setScore} />}
       {currentGame == 3 && <GameTwitter score={score} setScore={setScore} />}

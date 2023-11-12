@@ -6,6 +6,7 @@ import { FaAngleRight } from "react-icons/fa";
 import { useDisclosure } from "@nextui-org/react";
 import ActivityModal from "../ActivityModal";
 import { UserContext } from "../../../contexts/UserContext";
+import { Progress } from "@nextui-org/progress";
 
 export default function EncuestaBox(props) {
   const questions = [
@@ -312,7 +313,17 @@ export default function EncuestaBox(props) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-8 justify-between">
+      <div className="w-full px-16">
+        <Progress
+          aria-label="currentProgress"
+          size="lg"
+          value={currentQuestion+1}
+          maxValue={questions.length}
+          showValueLabel={true}
+          valueLabel={`Pregunta ${currentQuestion+1} de ${questions.length}`}
+        />
+      </div>
       <h2 className="my-4 text-2xl text-center font-light">
         {questions[currentQuestion].question}
       </h2>
