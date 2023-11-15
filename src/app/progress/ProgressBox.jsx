@@ -8,7 +8,7 @@ import infoMark from "../assets/info-circle.png";
 import { metrics } from "../api/metrics";
 
 export default function ProgressBox(props) {
-  const userId = "653ee8a348d9007e5d810902";
+  const userId = "653eefb2e27ae8459e3a65e1";
   const [data, setData] = useState(null);
   const [historyData, setHistoryData] = useState(null);
   const [historyLabels, setHistoryLabels] = useState(null);
