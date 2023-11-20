@@ -15,14 +15,14 @@ const fontSizeMultiplier = (size) => {
 };
 
 const Circle = ({ color, size, pct }) => {
-  const r = size/2.45;
+  const r = size / 2.45;
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
   return (
     <circle
       r={r}
-      cx={size/2}
-      cy={size/2}
+      cx={size / 2}
+      cy={size / 2}
       fill="transparent"
       stroke={strokePct !== circ ? color : ""} // remove color as 0% sets full circumference
       strokeWidth={"1rem"}
@@ -41,20 +41,22 @@ const Text = ({ percentage, size, unit }) => {
       y="50%"
       dominantBaseline="central"
       textAnchor="middle"
-      fontSize={fontSize} style={{color: '#2C2C2E', fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'}}
+      fontSize={fontSize}
+      fill="#FFFFFF"
     >
-      {percentage.toFixed(0)}<tspan fontSize={fontSize/2}>{unit}</tspan>
+      {percentage.toFixed(0)}
+      <tspan fontSize={fontSize / 2}>{unit}</tspan>
     </text>
   );
 };
 
 const Pie = ({ percentage, color, size, unit }) => {
   const pct = cleanPercentage(percentage);
-  const unitText = unit = null ? "%" : unit;
+  const unitText = (unit = null ? "%" : unit);
   const chartSize = chartSizeMultiplier(size);
   return (
     <svg width={chartSize} height={chartSize}>
-      <g transform={`rotate(-90 ${chartSize/2} ${chartSize/2})`}>
+      <g transform={`rotate(-90 ${chartSize / 2} ${chartSize / 2})`}>
         <Circle color="lightgrey" size={chartSize} />
         <Circle color={color} size={chartSize} pct={pct} />
       </g>
