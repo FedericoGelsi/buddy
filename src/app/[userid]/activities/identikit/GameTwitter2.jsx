@@ -11,7 +11,7 @@ const GameTwitter2 = (props) => {
 
   useEffect(() => {
     const answer = answers.at(currentAnswer - 1);
-    if (answer.isCorrect) setScore(context.identikit[2].maxScore);
+    if (answer.isCorrect) setScore(context.identikit[4].maxScore);
     else setScore(0);
   }, [currentAnswer]);
 

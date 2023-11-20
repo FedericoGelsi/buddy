@@ -73,7 +73,7 @@ export default function ProgressBox(props) {
       </div>
       
       <div style={{alignSelf: 'stretch', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex', marginTop: 16}}>
-        <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={data ? data.identikit.totalScore : 0} />
+        <PercentageChartBig title="Reconocimiento de perfil sospechoso" value={data ? data.identikit.totalPercentage * 100 : 0} />
 
         <HistoricalChart title="Promedio histórico reconocimiento" labels={historyLabels} data={historyData}/>
       </div>
