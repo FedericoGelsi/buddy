@@ -268,7 +268,6 @@ export default function EncuestaBox(props) {
   };
 
   const handleSubmit = () => {
-    onOpen();
     const currentQuestionData = {
       score:
         questions[currentQuestion].answers.find(
@@ -283,15 +282,9 @@ export default function EncuestaBox(props) {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     }
+    onOpen();
+    sendDataToServer();
   };
-
-  //aca envia el POST, podriamos ver de mostrar un cartel de encuesta finalizada
-  useEffect(() => {
-    if (currentQuestion === 9 && formData.parentForm.length == 10) {
-      sendDataToServer();
-      onOpen();
-    }
-  });
 
   const sendDataToServer = () => {
     console.log("ENVIADO");
