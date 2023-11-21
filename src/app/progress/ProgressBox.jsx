@@ -107,7 +107,7 @@ export default function ProgressBox(props) {
         <div className="lg:row-span-2 lg:col-span-1 sm:col-span-2">
           <PercentageChartBig
             title="Indicador de situación"
-            value={data ? data.parentForm.totalScore : 0}
+            value={data ? data.parentForm.totalPercentage * 100 : 0}
           />
         </div>
         <div className="col-span-2">
