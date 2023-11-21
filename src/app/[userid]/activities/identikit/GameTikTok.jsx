@@ -17,7 +17,7 @@ const GameTikTok = (props) => {
   const onDifferenceClick2 = (index) => {
     setActive2(!active2);
     setActive(false);
-    setScore(context.identikit[1].maxScore / 2);
+    setScore(Math.floor(context.identikit[1].maxScore / 2));
   };
   return (
     <div className="max-h-fit">
@@ -41,12 +41,11 @@ const GameTikTok = (props) => {
         />
         <Image
           src={PIC2}
-          className={active2 ? "border-8 border-warning rounded-3xl" : ""}
+          className={active2 ? "border-8 border-P300 rounded-3xl" : ""}
           invisibleRectangles={[
             { x: 0, y: 0, width: PIC2.width, height: PIC2.height },
           ]}
-          // onDifferenceClick={onDifferenceClick2}
-          onDifferenceClick={() => {}}
+          onDifferenceClick={onDifferenceClick2}
         />
       </div>
     </div>
