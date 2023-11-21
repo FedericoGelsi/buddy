@@ -65,7 +65,7 @@ const GameInstagram = (props) => {
         activeExplanation={activeExplanation}
         setActiveExplanation={setActiveExplanation}
       />
-      <div className="absolute right-32 bottom-32 max-w-[60%]">
+      <div className="">
         {activeExplanation && (
           <AdviceBox
             className="bg-success mx-16 my-4"
