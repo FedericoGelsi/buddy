@@ -251,7 +251,7 @@ export default function EncuestaBox(props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const [formData, setFormData] = useState({
-    userId: "6535b00290c7ab25b991a0fc",
+    userId: user._id,
     parentForm: [],
   });
 
