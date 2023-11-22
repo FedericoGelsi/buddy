@@ -261,13 +261,11 @@ export default function EncuestaBox(props) {
   };
 
   const nextQuestion = () => {
-    if (currentQuestion < questions.length) {
-      setCurrentAnswer(null);
-      setCurrentQuestion(currentQuestion + 1);
-    }
+    setCurrentAnswer(null);
+    setCurrentQuestion(currentQuestion + 1);
   };
 
-  const handleSubmit = () => {
+  const handleQuestion = () => {
     const currentQuestionData = {
       score:
         questions[currentQuestion].answers.find(
@@ -275,20 +273,22 @@ export default function EncuestaBox(props) {
         )?.score || 0,
       category: questions[currentQuestion].category,
     };
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      parentForm: [...prevFormData.parentForm, currentQuestionData],
-    }));
+    formData.parentForm.push(currentQuestionData);
+    setFormData(formData);
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      nextQuestion();
+    } else {
+      handleSubmit();
     }
+  };
+
+  const handleSubmit = () => {
     onOpen();
     sendDataToServer();
   };
 
   const sendDataToServer = () => {
-    console.log("ENVIADO");
-    console.log(formData);
+   
     fetch("https://buddy-api-msil.onrender.com/parent_forms", {
       method: "POST",
       headers: {
@@ -311,10 +311,10 @@ export default function EncuestaBox(props) {
         <Progress
           aria-label="currentProgress"
           size="lg"
-          value={currentQuestion+1}
+          value={currentQuestion + 1}
           maxValue={questions.length}
           showValueLabel={true}
-          valueLabel={`Pregunta ${currentQuestion+1} de ${questions.length}`}
+          valueLabel={`Pregunta ${currentQuestion + 1} de ${questions.length}`}
         />
       </div>
       <h2 className="my-4 text-2xl text-center font-light">
@@ -334,13 +334,13 @@ export default function EncuestaBox(props) {
             className="light"
             size="lg"
             color="primary"
-            onClick={handleSubmit}
+            onClick={handleQuestion}
           >
             Terminar actividad
           </Button>
         ) : (
           <Button
-            onClick={() => nextQuestion()}
+            onClick={handleQuestion}
             className="light"
             size="lg"
             endContent={<FaAngleRight />}
