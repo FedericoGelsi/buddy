@@ -8,6 +8,7 @@ import SimulacionSvg from "../../assets/SimulacionSvg";
 import IdentikitSvg from "../../assets/IdentikitSvg";
 import QuizSvg from "../../assets/QuizSvg";
 import { usePathname } from "next/navigation";
+import VideoModal from "./VideoModal";
 
 function ActivitiesList() {
   const [activity, setActivity] = useState("");
@@ -33,7 +34,7 @@ function ActivitiesList() {
     {
       activity: "simulation",
       title: "Estás a punto de iniciar la simulación",
-      body: "A definir",
+      body: "Prepárate para sumergirte en la experiencia y conversar con diversos personajes. ¿Estás listo?",
     },
   ];
   return (
@@ -51,7 +52,6 @@ function ActivitiesList() {
           cardImage={<SimulacionSvg />}
           cardButtonTitle={"Comenzar actividad"}
           onPress={() => handleActivity(content[2].activity)}
-          isDisabled={true}
         />
         <ActivityCard
           cardTitle={"Identikit"}
@@ -72,13 +72,21 @@ function ActivitiesList() {
           isExclusive={true}
           onPress={() => handleActivity(content[0].activity)}
         />
-        <ActivityModal
-          isOpen={isOpen}
-          onOpenChange={onOpenChange}
-          navigateTo={navigateTo}
-          content={content.find((x) => x.activity === activity)}
-          variant="start"
-        />
+        {activity === "simulation" ? (
+          <VideoModal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            content={content.find((x) => x.activity === activity)}
+          />
+        ) : (
+          <ActivityModal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            navigateTo={navigateTo}
+            content={content.find((x) => x.activity === activity)}
+            variant="start"
+          />
+        )}
       </div>
     </div>
   );
