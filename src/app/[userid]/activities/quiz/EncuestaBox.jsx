@@ -18,12 +18,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 25,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 25,
         },
         {
           id: 3,
@@ -41,12 +41,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 25,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 25,
         },
         {
           id: 3,
@@ -64,12 +64,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 25,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 25,
         },
         {
           id: 3,
@@ -87,12 +87,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 25,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 25,
         },
         {
           id: 3,
@@ -110,12 +110,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 50,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 50,
         },
         {
           id: 3,
@@ -133,12 +133,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 50,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 50,
         },
         {
           id: 3,
@@ -156,12 +156,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 50,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 50,
         },
         {
           id: 3,
@@ -178,12 +178,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 50,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 50,
         },
         {
           id: 3,
@@ -201,12 +201,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 50,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 50,
         },
         {
           id: 3,
@@ -224,12 +224,12 @@ export default function EncuestaBox(props) {
         {
           id: 1,
           title: "Si",
-          score: 50,
+          score: 0,
         },
         {
           id: 2,
           title: "No",
-          score: 0,
+          score: 50,
         },
         {
           id: 3,
